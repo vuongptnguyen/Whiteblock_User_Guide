@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Whiteblock User Guide'
-copyright = u'2018, Trey Zhong'
-author = u'Trey Zhong'
+copyright = u'2018, Whiteblock'
+author = u'Trey Zhong from Whiteblock'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
