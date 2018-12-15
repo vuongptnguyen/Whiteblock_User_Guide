@@ -85,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#command-line">Command Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#json-rpc-references">JSON RPC References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#websocket-apis">Websocket APIs</a></li>
 </ul>
 </li>
 </ul>
@@ -156,813 +156,1432 @@
 <h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="command-line">
 <h2>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
-<p>Whiteblock CLI
-whiteblock &lt;command&gt; [FLAGS]
-This application will deploy a blockchain, create nodes, and allow those nodes to interact in the network.</p>
-<p>Available Commands:</p>
-<p>build Build a blockchain using image and deploy nodes
-get Get server and network information.
-geth Run geth commands
-help Help about any command
-netconfig Network conditions
-rpc Rpc interacts with the blockchain
-ssh SSH into an existing container.
-version Get whiteblock CLI client version
-Flags:</p>
-<p>-h, –help : help for whiteblock
-build
-whiteblock build [FLAGS]
-Aliases: build, create, init</p>
+<p><strong>Whiteblock CLI</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>This application will deploy a blockchain, create nodes, and allow those nodes to interact in the network.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>build Build a blockchain using image and deploy nodes</li>
+<li>get Get server and network information.</li>
+<li>geth Run geth commands</li>
+<li>help Help about any command</li>
+<li>netconfig Network conditions</li>
+<li>rpc Rpc interacts with the blockchain</li>
+<li>ssh SSH into an existing container.</li>
+<li>version Get whiteblock CLI client version</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for whiteblock</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>build</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock build [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: build, create, init</p>
 <p>Build will create and deploy a blockchain and the specified number of nodes. Each node will be instantiated in its own container and will interact individually as a participant of the specified network.</p>
-<p>Flags:
--h, –help: help for build
--a, –server-addr string: server address with port 5000 (default “localhost:5000”)
-get
-whiteblock get &lt;command&gt; [FLAGS]
-Get will ouput server and network information and statstics.</p>
-<p>Available Commands:</p>
-<p>data Data will pull data from the network and output into a file.
-nodes Nodes will show all nodes in the network.
-server Get server information.
-stats Get stastics of a blockchain
-Flags:</p>
-<p>-h, –help : help for get
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get data
-whiteblock get data &lt;command&gt; [FLAGS]
-Data will pull specific or all block data from the network and output into a file. You will specify the directory where the file will be downloaded.</p>
-<p>Available Commands:</p>
-<p>all All will pull data from the network and output into a file.
-block Data block will pull data from the network and output into a file.
-time Data time will pull data from the network and output into a file.
-Flags:</p>
-<p>-h, –help : help for data
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get data all
-whiteblock get data all [PATH] [FLAGS]
-Data all will pull all data from the network and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for build</li>
+<li>-a, –server-addr string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get will ouput server and network information and statstics.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>data Data will pull data from the network and output into a file.</li>
+<li>nodes Nodes will show all nodes in the network.</li>
+<li>server Get server information.</li>
+<li>stats Get stastics of a blockchain</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for get</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get data</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get data &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Data will pull specific or all block data from the network and output into a file. You will specify the directory where the file will be downloaded.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>all All will pull data from the network and output into a file.</li>
+<li>block Data block will pull data from the network and output into a file.</li>
+<li>time Data time will pull data from the network and output into a file.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for data</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get data all</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get data all [PATH] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Data all will pull all data from the network and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for all
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get data block
-whiteblock get data block &lt;start block&gt; &lt;end block&gt; [PATH] [FLAGS]
-Data block will pull block data from the network from a given start and end block and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for all</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get data block</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get data block &lt;start block&gt; &lt;end block&gt; [PATH] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Data block will pull block data from the network from a given start and end block and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
 <p>Params: Block numbers Format: &lt;start block number&gt; &lt;end block number&gt;</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for block
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get data time
-whiteblock get data time &lt;start time&gt; &lt;end time&gt; [PATH] [FLAGS]
-Data time will pull block data from the network from a given start and end time and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for block</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get data time</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get data time &lt;start time&gt; &lt;end time&gt; [PATH] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Data time will pull block data from the network from a given start and end time and output into a file. The directory where the file will be downloaded will need to be specified. If no directory is provided, default directory is set to ~/Downloads.</p>
 <p>Params: Unix time stamps Format: &lt;start unix time stamp&gt; &lt;end unix time stamp&gt;</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for time
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get nodes
-whiteblock get nodes [FLAGS]
-Aliases: nodes, node</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for time</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get nodes</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get nodes [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: nodes, node</p>
 <p>Nodes will output all of the nodes in the current network.</p>
-<p>Flags:
--h, –help : help for server
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get server
-whiteblock get server [FLAGS]
-Aliases: server, servers</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for server</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get server</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get server [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: server, servers</p>
 <p>Server will allow the user to get server information.</p>
-<p>Flags:
--h, –help : help for server
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get stats
-whiteblock get stats &lt;command&gt; [FLAGS]
-Stats will allow the user to get statistics regarding the network.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for server</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get stats</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get stats &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Stats will allow the user to get statistics regarding the network.</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Available Commands:</p>
-<p>all
-block
-time
-Flags:</p>
-<p>-h, –help : help for stats
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get stats all
-whiteblock get stats all [FLAGS]
-Stats all will allow the user to get all the statistics regarding the network.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>all</li>
+<li>block</li>
+<li>time</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for stats</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get stats all</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get stats all [FLAGS]</span>
+</pre></div>
+</div>
+<p>Stats all will allow the user to get all the statistics regarding the network.</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for all
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get stats block
-whiteblock get stats block &lt;start block&gt; &lt;end block&gt; [FLAGS]
-Stats block will allow the user to get statistics regarding the network.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for all</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get stats block</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get stats block &lt;start block&gt; &lt;end block&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Stats block will allow the user to get statistics regarding the network.</p>
 <p>Params: Block numbers Format: &lt;start block number&gt; &lt;end block number&gt;</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for block
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-get stats time
-whiteblock get stats time &lt;start time&gt; &lt;end time&gt; [FLAGS]
-Stats time will allow the user to get statistics by specifying a start time and stop time (unix time stamp).</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for block</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>get stats time</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock get stats time &lt;start time&gt; &lt;end time&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Stats time will allow the user to get statistics by specifying a start time and stop time (unix time stamp).</p>
 <p>Params: Unix time stamps Format: &lt;start unix time stamp&gt; &lt;end unix time stamp&gt;</p>
 <p>Response: JSON representation of network statistics</p>
-<p>Flags:
--h, –help : help for time
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-geth
-whiteblock geth &lt;command&gt; [FLAGS]
-Geth will allow the user to get infromation and run geth commands.</p>
-<p>Available SubCommands:</p>
-<p>block_listener Get block listener
-get_accounts Get account information
-get_balance Get account balance information
-get_block Get block information
-get_block_number Get block number
-get_hash_rate Get hasg rate
-get_recent_sent_tx Get recently sent transaction
-get_transaction Get transaction information
-get_transaction_count Get transaction count
-get_transaction_receipt Get transaction receipt
-send_transaction Sends a transaction
-start_mining Start Mining
-start_transactions Start transactions
-stop_mining Stop mining
-stop_transactions Stop transactions
-Flags:</p>
-<p>-h, –help: help for geth
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-geth block_listener
-whiteblock geth block_listener [block number] [FLAGS]
-Get all blocks and continue to subscribe to new blocks</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for time</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Geth will allow the user to get infromation and run geth commands.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available SubCommands:</dt>
+<dd><ul class="first last">
+<li>block_listener Get block listener</li>
+<li>get_accounts Get account information</li>
+<li>get_balance Get account balance information</li>
+<li>get_block Get block information</li>
+<li>get_block_number Get block number</li>
+<li>get_hash_rate Get hasg rate</li>
+<li>get_recent_sent_tx Get recently sent transaction</li>
+<li>get_transaction Get transaction information</li>
+<li>get_transaction_count Get transaction count</li>
+<li>get_transaction_receipt Get transaction receipt</li>
+<li>send_transaction Sends a transaction</li>
+<li>start_mining Start Mining</li>
+<li>start_transactions Start transactions</li>
+<li>stop_mining Stop mining</li>
+<li>stop_transactions Stop transactions</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for geth</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth block_listener</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth block_listener [block number] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get all blocks and continue to subscribe to new blocks</p>
 <p>Format: [block number] Params: The block number to start at or None for all blocks Response: Will emit on eth::block_listener for every block after the given block or 0 that exists/has been created</p>
-<p>Flags:
--h, –help: help for block_listener
-geth get_accounts
-whiteblock geth get_accounts [FLAGS]
-Get a list of all unlocked accounts</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for block_listener</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_accounts</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_accounts [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get a list of all unlocked accounts</p>
 <p>Response: A JSON array of the accounts</p>
-<p>Flags:
--h, –help: help for get_accounts
-geth get_balance
-whiteblock geth get_balance &lt;address&gt; [FLAGS]
-Get the current balance of an account</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_accounts</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_balance</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_balance &lt;address&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the current balance of an account</p>
 <p>Format: &lt;address&gt; Params: Account address Response: The integer balance of the account in wei</p>
-<p>Flags:
--h, –help: help for get_balance
-geth get_block
-whiteblock geth get_block &lt;block number&gt; [FLAGS]
-Get the data of a block</p>
+<ul class="simple">
+<li>Flags:
+- -h, –help: help for get_balance</li>
+</ul>
+<p><strong>geth get_block</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_block &lt;block number&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the data of a block</p>
 <p>Format: &lt;Block Number&gt; Params: Block number</p>
-<p>Flags:
--h, –help: help for get_block
-geth get_block_number
-whiteblock geth get_block_number [FLAGS]
-Get the current highest block number of the chain</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_block</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_block_number</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_block_number [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the current highest block number of the chain</p>
 <p>Response: The block number</p>
-<p>Flags:
--h, –help: help for get_block_number
-geth get_hash_rate
-whiteblock geth get_hash_rate [FLAGS]
-Get the current hash rate per node</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_block_number</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_hash_rate</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_hash_rate [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the current hash rate per node</p>
 <p>Response: The hash rate of a single node in the network</p>
-<p>Flags:
--h, –help: help for get_hash_rate
-geth get_recent_sent_tx
-whiteblock geth get_recent_sent_tx [NUMBER] [FLAGS]
-Get a number of the most recent transactions sent</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_hash_rate</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_recent_sent_tx</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_recent_sent_tx [NUMBER] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get a number of the most recent transactions sent</p>
 <p>Format: [number] Params: The number of transactions to retrieve Response: JSON object of transaction data</p>
-<p>Flags:
--h, –help: help for get_recent_sent_tx
-geth get_transaction
-whiteblock geth get_transaction &lt;hash&gt; [FLAGS]
-Get a transaction by its hash</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_recent_sent_tx</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_transaction</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_transaction &lt;hash&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get a transaction by its hash</p>
 <p>Format: &lt;hash&gt; Params: The transaction hash</p>
 <p>Response: JSON representation of the transaction.</p>
-<p>Flags:
--h, –help: help for get_transaction
-geth get_transaction_count
-whiteblock geth get_transaction_count &lt;address&gt; [BLOCK NUMBER] [FLAGS]
-Get the transaction count sent from an address, optionally by block</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_transaction</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_transaction_count</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_transaction_count &lt;address&gt; [BLOCK NUMBER] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the transaction count sent from an address, optionally by block</p>
 <p>Format: &lt;address&gt; [block number] Params: The sender account, a block number Response: The transaction count</p>
-<p>Flags:
--h, –help: help for get_transaction_count
-geth get_transaction_receipt
-whiteblock geth get_transaction_receipt &lt;hash&gt; [FLAGS]
-Get the transaction receipt by the tx hash</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_transaction_count</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth get_transaction_receipt</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth get_transaction_receipt &lt;hash&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Get the transaction receipt by the tx hash</p>
 <p>Format: &lt;hash&gt; Params: The transaction hash Response: JSON representation of the transaction receipt.</p>
-<p>Flags:
--h, –help: help for get_transaction_receipt
-geth send_transaction
-whiteblock geth send_transaction &lt;from address&gt; &lt;to address&gt; &lt;gas&gt; &lt;gas price&gt; &lt;value to send&gt; [FLAGS]
-Send a transaction between two accounts</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for get_transaction_receipt</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth send_transaction</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth send_transaction &lt;from address&gt; &lt;to address&gt; &lt;gas&gt; &lt;gas price&gt; &lt;value to send&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Send a transaction between two accounts</p>
 <p>Format: &lt;from&gt; &lt;to&gt; &lt;gas&gt; &lt;gas price&gt; &lt;value&gt; Params: Sending account, receiving account, gas, gas price, amount to send, transaction data, nonce Response: The transaction hash</p>
-<p>Flags:
--h, –help: help for send_transaction
-geth start_mining
-whiteblock geth start_mining [node 1 number] [node 2 number]… [FLAGS]
-Send the start mining signal to nodes, may take a while to take effect due to DAG generation</p>
+<ul class="simple">
+<li>Flags:
+- -h, –help: help for send_transaction</li>
+</ul>
+<p><strong>geth start_mining</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth start_mining [node 1 number] [node 2 number]... [FLAGS]</span>
+</pre></div>
+</div>
+<p>Send the start mining signal to nodes, may take a while to take effect due to DAG generation</p>
 <p>Format: [node 1 number] [node 2 number]… Params: A list of the nodes to start mining or None for all nodes Response: The number of nodes which successfully received the signal to start mining</p>
-<p>Flags:
--h, –help: help for start_mining
-geth start_transactions
-whiteblock geth start_transactions &lt;tx/s&gt; &lt;value&gt; [DESTINATION] [FLAGS]
-Start sending transactions according to the given parameters, value = -1 means randomize value.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for start_mining</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth start_transactions</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth start_transactions &lt;tx/s&gt; &lt;value&gt; [DESTINATION] [FLAGS]</span>
+</pre></div>
+</div>
+<p>Start sending transactions according to the given parameters, value = -1 means randomize value.</p>
 <p>Format: &lt;tx/s&gt; &lt;value&gt; [destination] Params: The amount of transactions to send in a second, the value of each transaction in wei, the destination for the transaction</p>
-<p>Flags:
--h, –help: help for start_transactions
-geth stop_mining
-whiteblock geth stop_mining [node 1 number] [node 2 number]… [FLAGS]
-Send the stop mining signal to nodes</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for start_transactions</li>
+<li>geth stop_mining</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth stop_mining</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth stop_mining [node 1 number] [node 2 number]... [FLAGS]</span>
+</pre></div>
+</div>
+<p>Send the stop mining signal to nodes</p>
 <p>Format: [node 1 number] [node 2 number]… Params: A list of the nodes to stop mining or None for all nodes Response: The number of nodes which successfully received the signal to stop mining</p>
-<p>Flags:
--h, –help: help for stop_mining
-geth stop_transactions
-whiteblock geth stop_transactions [FLAGS]
-Stops the sending of transactions if transactions are currently being sent</p>
-<p>Flags:
--h, –help: help for stop_transactions
-netconfig
-whiteblock netconfig &lt;command&gt; [FLAGS]
-Aliases: emulate</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for stop_mining</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>geth stop_transactions</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock geth stop_transactions [FLAGS]</span>
+</pre></div>
+</div>
+<p>Stops the sending of transactions if transactions are currently being sent</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for stop_transactions</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>netconfig</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: emulate</p>
 <p>Netconfig will introduce persisting network conditions for testing. Use ‘?’ at any time for more help on configuring the network.</p>
 <p>Custom Command: netconfig &lt;engine number&gt; &lt;path number&gt; &lt;command&gt;</p>
 <p>set delay &lt;amount&gt; Specifies the latency to add [ms]; set loss loss &lt;amount&gt; Specifies the amount of packet loss to add [%]; set bw &lt;amount&gt; &lt;type&gt; Specifies the bandwidth of the network [bps|Kbps|Mbps|Gbps];</p>
-<p>Available Commands:</p>
-<p>bandwidth Set bandwidth
-delay Set latency
-loss Set packetloss
-off Turn off emulation
-on Turn on emulation
-Flags:</p>
-<p>-h, –help: help for netconfig
-netconfig bandwidth
-whiteblock netconfig bandwidth &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt; &lt;bandwidth type&gt; [FLAGS]
-Aliases: bw</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>bandwidth Set bandwidth</li>
+<li>delay Set latency</li>
+<li>loss Set packetloss</li>
+<li>off Turn off emulation</li>
+<li>on Turn on emulation</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd>-h, –help: help for netconfig</dd>
+</dl>
+</li>
+</ul>
+<p><strong>netconfig bandwidth</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig bandwidth &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt; &lt;bandwidth type&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: bw</p>
 <p>Bandwidth will constrict the network to the specified bandwidth. You will specify the amount of bandwdth and the type.</p>
 <p>Fomat: bandwidth type: bps, Kbps, Mbps, Gbps</p>
-<p>Flags:
--h, –help: help for bandwidth
-netconfig delay
-whiteblock netconfig delay &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt; [FLAGS]
-Aliases: delay, latancy, lat</p>
-<p>Latency will introduce delay to the network. You will specify the amount of latency in ms.</p>
-<p>Flags:
--h, –help: help for latency
-netconfig loss
-whiteblock netconfig loss &lt;engine number&gt; &lt;path number&gt; &lt;percent&gt; [FLAGS]
-Aliases: packetloss</p>
-<p>Packetloss will drop packets in the network. You will specify the amount of packet loss in %.</p>
-<p>Flags:
--h, –help: help for loss
-netconfig off
-whiteblock netconfig off &lt;engine number&gt; [FLAGS]
-Turn off emulation.</p>
-<p>Flags:
--h, –help: help for off
-netconfig on
-whiteblock netconfig on &lt;engine number&gt; [FLAGS]
-Turn on emulation.</p>
-<p>Flags:
--h, –help: help for on
-ssh
-whiteblock ssh &lt;server&gt; &lt;node&gt; [FLAGS]
-SSH will allow the user to go into the contianer where the specified node exists.</p>
-<p>Response: stdout of the command</p>
-<p>Flags:
--h, –help : help for ssh
--a, –server-addr : server address with port 5000 (default “localhost:5000”)
-sys
-whiteblock sys &lt;command&gt; [FLAGS]
-Alias: SYS, syscoin</p>
-<p>Sys will allow the user to get infromation and run SYS commands.</p>
-<p>Available Commands:
-test SYS test commands.</p>
-<p>Flags:</p>
-<p>-h, –help : help for sys
-sys test
-whiteblock sys test &lt;command&gt; [FLAGS]
-Available Commands: results Get results from a previous test. start Starts propagation test.</p>
-<p>Flags:
--h, –help : help for test
-sys test start
-whiteblock sys test start &lt;wait time&gt; &lt;min complete percent&gt; &lt;number of tx&gt; [FLAGS]
-Sys test start will start the propagation test. It will wait for the signal start time, have nodes send messages at the same time, and require to wait a minimum amount of time then check receivers with a completion rate of minimum completion percentage.</p>
-<p>Format: &lt;wait time&gt; &lt;min complete percent&gt; &lt;number of tx&gt; Params: Time in seconds, percentage, number of transactions</p>
-<p>Flags:
--h, –help : help for start
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-sys test results
-whiteblock sys test results &lt;test number&gt; [FLAGS]
-Sys test results pulls data from a previous test or tests and outputs as csv.</p>
-<p>Format: &lt;test number&gt; Params: Test number</p>
-<p>Flags:
--h, –help : help for results
--a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)
-version [FLAGS]
-whiteblock version
-Get whiteblock CLI client version</p>
-<p>Flags:
--h, –help : help for version
-* TO CONFIGURE:&nbsp;*</p>
-<p>contractadd
-whiteblock contractadd &lt;filename&gt; [FLAGS]
-Adds the specified smart contract into the /Downloads folder.</p>
-<p>Flags:
--h, –help: help for contractadd
--p, –path&nbsp;string&nbsp;: File path where the smart contract is located
-contractcompile
-whiteblock contractcompile &lt;filename&gt; [FLAGS]
-Compiles the specified smart contract.</p>
-<p>Flags:
--h, –help: help for contractcompile
--p, –path&nbsp;string: File path where the smart contract is located</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for bandwidth</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>netconfig delay</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig delay &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt; [FLAGS]</span>
+</pre></div>
 </div>
-<div class="section" id="json-rpc-references">
-<h2>JSON RPC References<a class="headerlink" href="#json-rpc-references" title="Permalink to this headline">¶</a></h2>
-<p>Whiteblock JSON RPC Interface
-Installation
-clone repository
-cd router
-go get
-go build
-Dependencies
-go &gt;= 1.11.1
-Documentation
-Interaction
-In order to allow a full range of accessibility to the platform, the router uses a WebSocket interface. Interaction is done through the socket io protocol, client libraries for this can be found here. The function name serves as both the sending and receiving event. The payload servers the parameters, if any, as defined in the next section.</p>
-<p>Events
-Stats
-charts
-Description: Get the data for the front end charts
-Params: JSON object representing the blocks to retrieve data for. Set the end to -1 to get up to the current.
-Format: {“start”:&lt;start point,inclusive&gt;,”end”:&lt;end block,exclusive&gt;}
-Example: {“start”:1,”end”:1000}
-Response:
-[</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>“blockNumber”:553,
-“blockTime”:1,
-“numberOfTransactions”:1,
-“numberOfUncles”:0,
-“gasLimit”:6861391,
-“gasUsed”:21000,
-“difficulty”:1301725,
-“totalDifficulty”:632292281,
-“size”:651,
-“miner”:”0x47a3d6ea062083945f080a509234f771b26a99a9”</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>]
-chart_listener
-Description: Get the data for the front end charts. Will continue to stream new chart data as it comes in
-Params: The block number to start streaming the data at, leave empty to start from the beginning
-Format: [block number]
-Example: 1
-Response:
-[</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>“blockNumber”:553,
-“blockTime”:1,
-“numberOfTransactions”:1,
-“numberOfUncles”:0,
-“gasLimit”:6861391,
-“gasUsed”:21000,
-“difficulty”:1301725,
-“totalDifficulty”:632292281,
-“size”:651,
-“miner”:”0x47a3d6ea062083945f080a509234f771b26a99a9”</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>]
-stats
-Description: get specific stats
-Params: JSON object representing the time frame. Set startTime to 0, to default to using the block numbers
-Format: {“startTime”:&lt;unix time stamp&gt;,”endTime”:&lt;unix time stamp&gt;,”startBlock”:&lt;block number&gt;,”endBlock”:&lt;block number&gt;}
-Example: {“startTime”:0,”endTime”:0,”startBlock”:3,”endBlock”:20}
-Example: {“startTime”:1542825482,”endTime”:1542840263,”startBlock”:0,”endBlock”:0}
-Response:
-{</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>“difficulty”:{</dt>
-<dd>“max”:1002271,
-“standardDeviation”:2121.3641248027275,
-“mean”:999010</dd>
-</dl>
-<p>},
-“totalDifficulty”:{</p>
-<blockquote>
-<div>“max”:20020556,
-“standardDeviation”:4606480.1924615465,
-“mean”:12518222.9375</div></blockquote>
-<p>},
-“gasLimit”:{</p>
-<blockquote>
-<div>“max”:4074846,
-“standardDeviation”:18194.434054363843,
-“mean”:4045176.9375</div></blockquote>
-<p>},
-“gasUsed”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“blockTime”:{</p>
-<blockquote>
-<div>“max”:10,
-“standardDeviation”:2.250925735484551,
-“mean”:3</div></blockquote>
-<p>},
-“transactionCount”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“uncleCount”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“tps”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,</div></blockquote>
-<p>“mean”:0
-}</p>
-</div></blockquote>
-<p>}
-all_stats
-Description: Get the current overtime chain statistics
-Params: None
-Response:
-{</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>“difficulty”:{</dt>
-<dd>“max”:1002271,
-“standardDeviation”:2121.3641248027275,
-“mean”:999010</dd>
-</dl>
-<p>},
-“totalDifficulty”:{</p>
-<blockquote>
-<div>“max”:20020556,
-“standardDeviation”:4606480.1924615465,
-“mean”:12518222.9375</div></blockquote>
-<p>},
-“gasLimit”:{</p>
-<blockquote>
-<div>“max”:4074846,
-“standardDeviation”:18194.434054363843,
-“mean”:4045176.9375</div></blockquote>
-<p>},
-“gasUsed”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“blockTime”:{</p>
-<blockquote>
-<div>“max”:10,
-“standardDeviation”:2.250925735484551,
-“mean”:3</div></blockquote>
-<p>},
-“transactionCount”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“uncleCount”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,
-“mean”:0</div></blockquote>
-<p>},
-“tps”:{</p>
-<blockquote>
-<div>“max”:0,
-“standardDeviation”:0,</div></blockquote>
-<p>“mean”:0
-}</p>
-</div></blockquote>
-<p>}
-Emulate
-netconfig
-Description: Set the network conditions
-Params: Command to execute
-Format: &lt;command&gt;
-Example: engine 1 path 1 show
-Response: stdout of the command on the network emulator
-Build
-get_nodes
-Description: Get the currently running nodes
-Params: None
-Response: JSON Representation of the nodes. e.g. [{“name”:”whiteblock-node0”,”server”:4},…]
-exec
-Description: Run a command on a node
-Params: The block number
-Format: {“server”:&lt;server id&gt;,”node”:&lt;node number&gt;,”command”:&lt;command to run&gt;}
-Example: {“server”:4,”node”:0,”command”:”ls -l”}
-Response: stdout of the command
-get_servers
-Description: Get the availible servers
-Params: None
-Response: JSON Representation of the servers.
-build
-Description: Builds out the network according to the given specifications, sets up the infrastructure and does all of the necessary program build steps
-Params: JSON Object representing the requested network
-Format:{“servers”:&lt;array of the server ids to be built on&gt;,”blockchain”:&lt;The block chain to build&gt;,”nodes”:&lt;The number of nodes in the network&gt;,”image”:&lt;The docker image to build off of&gt;,”resources”:{“cpus”:&lt;The number of cpus to use as a decimal value&gt;,”memory”:&lt;The hard memory limit for each node&gt;}}
-Response: None. Note: that the build status can be seen from the event ‘build_status’
-Example:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd><p class="first">“servers”:[3],
-“blockchain”:”ethereum”,
-“nodes”:3,
-“image”:”ethereum:latest”,
-“resources”:{</p>
-<blockquote>
-<div>“cpus”:”2.5”,
-“memory”:”12gb”</div></blockquote>
-<p>},
-“params”:{</p>
-<blockquote>
-<div>“chainId”: 12345</div></blockquote>
-<p class="last">}</p>
+<p>Aliases: delay, latancy, lat</p>
+<p>Latency will introduce delay to the network. You will specify the amount of latency in ms.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for latency</li>
+</ul>
 </dd>
 </dl>
-<p>}</p>
-</div></blockquote>
-<p>get_params
-Description: Get the blockchain specific params for a blockchain
-Params: The blockchain to get the build params of
-Format:&lt;blockchain&gt;
-Response: The params as a list of key value params, of name and type respectively
-Example:
-[</p>
-<blockquote>
-<div>{“chainId”:”int”},
-{“networkId”:”int”},
-{“difficulty”:”int”},
-{“initBalance”:”string”},
-{“maxPeers”:”int”},
-{“gasLimit”:”int”},
-{“homesteadBlock”:”int”},
-{“eip155Block”:”int”},
-{“eip158Block”:”int”}</div></blockquote>
-<p>]
-Generics
-forward
-forward {“nodes”:[&lt;node1&gt;,…&lt;noden&gt;],”port”:&lt;port&gt;,”data”:”&lt;data to send to all the nodes given&gt;”}
-forward tcp data to specific nodes, pass data with c string escapes and receive data back with c string escapes, in a json array of strings
-Example: {“nodes”:[1,2],”port”:80,”data”:”GET / HTTP/1.1rnrn”}
-Response: JSON Array of the responses
-Response Example: [“HTTP/1.1 200 OKrnrn”]
-Ethereum
-eth::get_block_number
-Description: Get the current highest block number of the chain
-Params: None
-Response: The block number e.g. 10
-eth::get_block
-Description: Get the data of a block
-Params: The block number
-Format: &lt;Block Number&gt;
-Example: 10
-Response: JSON Representation of the block. Example
-eth::get_accounts
-Description: Get the unlocked accounts
-Params: None
-Response: A JSON array of the accounts
-eth::get_balance
-Description: Get the current balance of an account
-Params: Account address
-Format: &lt;address&gt;
-Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab
-Response: The integer balance of the account in wei
-eth::send_transaction
-Description: Send a transaction between two accounts
-Params: Sending account, receiving account, gas, gas price, amount to send, transaction data, nonce
-Format: &lt;from&gt; &lt;to&gt; &lt;gas&gt; &lt;gas price&gt; &lt;value&gt; [data] [nonce]
-Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab 0x8d12a197cb00d4747a1fe03395095ce2a5cc6819 0x015f90 0x165a0bc00 0xde0b6b3a7640000
-Response: The transaction hash
-eth::get_transaction_count
-Description: Get the transaction count sent from an address, optionally by block
-Params: The sender account, a block number
-Format: &lt;address&gt; [block number]
-Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab
-Response: The transaction count
-eth::get_transaction
-Description: Get a transaction by its hash
-Params: The transaction hash
-Format: &lt;hash&gt;
-Example: 0x402c257c85c398154b8b16fa612df13e197135f63d1be9e03b6d2d55285e8670
-Response: JSON representation of the transaction. Example
-eth::get_transaction_receipt
-Description: Get the transaction receipt by the tx hash
-Params: The transaction hash
-Format: &lt;hash&gt;
-Example: 0x402c257c85c398154b8b16fa612df13e197135f63d1be9e03b6d2d55285e8670
-Response: JSON representation of the transaction receipt. Example
-eth::get_hash_rate
-Description: Get the current hash rate per node
-Params: None
-Response: The hash rate of a single node in the network
-eth::start_transactions
-Description: Start sending transactions according to the given parameters, value = -1 means randomize value.
-Params: The amount of transactions to send in a second, the value of each transaction in wei, the destination for the transaction
-Format: &lt;tx/s&gt; &lt;value&gt; [destination]
-Example: 100 0xde0b6b3a7640000 0x8d12a197cb00d4747a1fe03395095ce2a5cc6819
-Response: None
-eth::stop_transactions
-Description: Stops the sending of transactions if transactions are currently being sent
-Params: None
-Response: None
-eth::start_mining
-Description: Send the start mining signal to nodes, may take a while to take effect due to DAG generation
-Params: A list of the nodes to start mining or None for all nodes
-Format: [node 1 number] [node 2 number]…
-Example: 0 1 2 3
-Response: The number of nodes which successfully received the signal to start mining
-eth::stop_mining
-Description: Send the stop mining signal to nodes
-Params: A list of the nodes to stop mining or None for all nodes
-Format: [node 1 number] [node 2 number]…
-Example: 0 1 2 3
-Response: The number of nodes which successfully received the signal to stop mining
-eth::block_listener
-Description: Get all blocks and continue to subscribe to new blocks
-Params: The block number to start at or None for all blocks
-Format: [block number]
-Example: 12
-Response: Will emit on eth::block_listener for every block after the given block or 0 that exists/has been created
-eth::get_recent_sent_tx
-Description: Get a number of the most recent transactions sent
-Params: The number of transactions to retrieve
-Format: [number]
-Example: 5
-Response: Data on the 5 last sent transactions
-Response Example: {“results”:[{“statement_id”:0,”series”:[{“name”:”transactions”,”columns”:[“time”,”from”,”gas”,”gas_price”,”to”,”txid”,”value”],”values”:[[“2018-11-08T18:02:59.700086831Z”,”“0x1949d6d0dfb19048563b602d9a02c06420421429”“,”“0x15f90”“,”“0x3B9ACA00”“,”“0xd9075634d9725f05a1a84343fb40a31d9964ffa5”“,”“0xaffad4a457d79448f211654be8eae1ca6fa8e005936d72528d394fe724adb903”“,”0xDE0B6B3A7640000”],[“2018-11-08T18:02:59.698273467Z”,”“0x1949d6d0dfb19048563b602d9a02c06420421429”“,”“0x15f90”“,”“0x3B9ACA00”“,”“0xd9075634d9725f05a1a84343fb40a31d9964ffa5”“,”“0x8f08bc904c7fbf2e3c695bd71237432137e4f22a20287eda880ed8b409032580”“,”0xDE0B6B3A7640000”],[“2018-11-08T18:02:59.655393436Z”,”“0xd9075634d9725f05a1a84343fb40a31d9964ffa5”“,”“0x15f90”“,”“0x3B9ACA00”“,”“0xe33e509fea81ea03333a3659c98108196ac438a7”“,”“0x21ed0c41959ec9aecf36461cd5b42e65505090e8dbd514ba3b123a3889a5735e”“,”0xDE0B6B3A7640000”],[“2018-11-08T18:02:59.651551261Z”,”“0x1949d6d0dfb19048563b602d9a02c06420421429”“,”“0x15f90”“,”“0x3B9ACA00”“,”“0xd9075634d9725f05a1a84343fb40a31d9964ffa5”“,”“0xfc9b2658bdc95669ffd38e8ff02b9995d894542db52161fbe41ee5dcaed70628”“,”0xDE0B6B3A7640000”],[“2018-11-08T18:02:59.628233357Z”,”“0xd9075634d9725f05a1a84343fb40a31d9964ffa5”“,”“0x15f90”“,”“0x3B9ACA00”“,”“0xe33e509fea81ea03333a3659c98108196ac438a7”“,”“0x15597db936fc88d8a781ea7da6dce1260a05f10070ab75cd8328659d1343390a”“,”0xDE0B6B3A7640000”]]}]}]}
-Syscoin
-sys::start_test
-Description: Start the propogation/tps test for syscoin
-Params: The max number of test results to retrieve
-Format: {“waitTime”:&lt;seconds to wait&gt;,”minCompletePercent”:&lt;percentage&gt;,”numberOfTransactions”:&lt;number of tx&gt;}
-Example:
-{</p>
-<blockquote>
-<div>“waitTime”:11,
-“minCompletePercent”:97.7,
-“numberOfTransactions”:500</div></blockquote>
-<p>}
-sys::get_recent_test_results
-Description: Get recent test results
-Params: The max number of test results to retrieve
-Format: [number]
-Example: 5
-Response: Data on the last x test results
-Examples
-Building the network
-const io = require(‘socket.io-client’)</p>
-<dl class="docutils">
-<dt>const socket = io(‘<a class="reference external" href="http://localhost:5000">http://localhost:5000</a>’, {</dt>
-<dd>path: ‘/’</dd>
-</dl>
-<p>})</p>
-<dl class="docutils">
-<dt>socket.on(‘connect’, () =&gt; {</dt>
-<dd>console.log(“Attempting to build the network”)
-socket.emit(‘build’,’{“servers”:[3],”blockchain”:”ethereum”,”nodes”:3,”image”:”ethereum:latest”}’)</dd>
-</dl>
-<p>})</p>
-<dl class="docutils">
-<dt>socket.on(“build_status”,(msg)=&gt;{</dt>
-<dd><p class="first">console.log(“Received status of “+msg)
-const result = JSON.parse(msg)
-if(result.progress == 100){</p>
-<blockquote>
-<div>//The network has been built</div></blockquote>
-<p class="last">}</p>
+</li>
+</ul>
+<p><strong>netconfig loss</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig loss &lt;engine number&gt; &lt;path number&gt; &lt;percent&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Aliases: packetloss</p>
+<p>Packetloss will drop packets in the network. You will specify the amount of packet loss in %.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for loss</li>
+</ul>
 </dd>
 </dl>
-<p>})</p>
-<dl class="docutils">
-<dt>socket.on(‘disconnect’, () =&gt; {</dt>
-<dd>socket.open()</dd>
+</li>
+</ul>
+<p><strong>netconfig off</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig off &lt;engine number&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Turn off emulation.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for off</li>
+</ul>
+</dd>
 </dl>
-<p>})</p>
-<p>socket.open();
-Starting the transactions
-const io = require(‘socket.io-client’)
-const socket = io(‘<a class="reference external" href="http://localhost:5000">http://localhost:5000</a>’, {</p>
-<blockquote>
-<div>path: ‘/’</div></blockquote>
-<p>})</p>
-<dl class="docutils">
-<dt>socket.on(‘connect’, () =&gt; {</dt>
-<dd>console.log(“Starting the transactions”)
-socket.emit(“eth::stop_transactions”)//kill any previous transaction logic
-socket.emit(“eth::start_transactions”,”1 0xde0b6b3a7640000”)//Start sending the transactions</dd>
+</li>
+</ul>
+<p><strong>netconfig on</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock netconfig on &lt;engine number&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Turn on emulation.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for on</li>
+</ul>
+</dd>
 </dl>
-<p>})</p>
-<p>socket.open();
-Configuration
-The endpoints of the router are set through the config.json file. The program will search for this file in the directory from which it is called. The following parameters can be set in the configuration file</p>
-<p>genesis: The socket endpoint of the genesis program
-rpc: The socket endpoint of the rpc program
-influx: The socket endpoint for influx db (Can be different from the one for rpc)
-listen: The port on which this program will bind to
-update-interval: The interval, in ms, on which the router will poll, for events which require polling, such as build status
-netropy: The ip address of the netropy
-netropy-user: The login username for the netropy
-netropy-password: The login password for the netropy
-record: The socket endpoint for the record application
-tls: Whether this program should server content over TLS
-cert: The TLS certificate
-key: The TLS key
-Block Chain Specific Parameters
-Geth (Go-Ethereum)
-Note: Any configuration option can be left out, and this entire section can even be null, the example contains all of the defaults</p>
-<p>Options
-chainId: The chain id set in the genesis.conf
-networkId: The network id
-difficulty: The initial difficulty set in the genesis.conf file
-initBalance: The initial balance for the accounts
-maxPeers: The maximum number of peers for each node
-gasLimit: The initial gas limit
-homesteadBlock: Set in genesis.conf
-eip155Block: Set in genesis.conf
-eip158Block: Set in genesis.conf
-Example (using defaults)
-{</p>
-<blockquote>
-<div>“chainId”:15468,
-“networkId”:15468,
-“difficulty”:100000,
-“initBalance”:100000000000000000000,
-“maxPeers”:1000,
-“gasLimit”:4000000,
-“homesteadBlock”:0,
-“eip155Block”:0,
-“eip158Block”:0</div></blockquote>
-<p>}
-Syscoin (RegTest)
-Options
-rpcUser: The username credential
-rpcPass: The password credential
-masterNodeConns: The number of connections to set up for the master nodes
-nodeConns: The number of connections to set up for the normal nodes
-percentMasternodes: The percentage of the network consisting of master nodes</p>
-<p>options: Options to set enabled for all nodes</p>
-<p>senderOptions: Options to set enabled for senders
-receiverOptions: Options to set enabled for receivers
-mnOptions: Options to set enabled for master nodes</p>
-<p>extras: Extra options to add to the config file for all nodes</p>
-<p>senderExtras: Extra options to add to the config file for senders
-receiverExtras: Extra options to add to the config file for receivers
-mnExtras: Extra options to add to the config file for master nodes
-Example (using defaults)
-{</p>
-<blockquote>
-<div><p>“rpcUser”:”username”,
-“rpcPass”:”password”,
-“masterNodeConns”:25,
-“nodeConns”:8,
-“percentMasternodes”:90,
-“options”:[</p>
-<blockquote>
-<div>“server”,
-“regtest”,
-“listen”,
-“rest”</div></blockquote>
-<p>],
-“senderOptions”:[</p>
-<blockquote>
-<div>“tpstest”,
-“addressindex”</div></blockquote>
-<p>],
-“mnOptions”:[],
-“receiverOptions”:[</p>
-<blockquote>
-<div>“tpstest”</div></blockquote>
-<p>],
-“extras”:[],
-“senderExtras”:[],
-“receiverExtras”:[],
-“mnExtras”:[]</p>
-</div></blockquote>
-<p>}</p>
+</li>
+</ul>
+<p><strong>ssh</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock ssh &lt;server&gt; &lt;node&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>SSH will allow the user to go into the contianer where the specified node exists.</p>
+<p>Response: stdout of the command</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for ssh</li>
+<li>-a, –server-addr : server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>sys</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock sys &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Alias: SYS, syscoin</p>
+<p>Sys will allow the user to get infromation and run SYS commands.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Available Commands:</dt>
+<dd><ul class="first last">
+<li>test SYS test commands.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for sys</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>sys test</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock sys test &lt;command&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Available Commands: results Get results from a previous test. start Starts propagation test.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for test</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>sys test start</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock sys test start &lt;wait time&gt; &lt;min complete percent&gt; &lt;number of tx&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Sys test start will start the propagation test. It will wait for the signal start time, have nodes send messages at the same time, and require to wait a minimum amount of time then check receivers with a completion rate of minimum completion percentage.</p>
+<p>Format: &lt;wait time&gt; &lt;min complete percent&gt; &lt;number of tx&gt; Params: Time in seconds, percentage, number of transactions</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for start</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>sys test results</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock sys test results &lt;test number&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Sys test results pulls data from a previous test or tests and outputs as csv.</p>
+<p>Format: &lt;test number&gt; Params: Test number</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help : help for results</li>
+<li>-a, –server-addr&nbsp;string: server address with port 5000 (default “localhost:5000”)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>version</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock version</span>
+</pre></div>
+</div>
+<p>Get whiteblock CLI client version</p>
+<ul class="simple">
+<li>Flags:
+- -h, –help : help for version</li>
+</ul>
+<p><strong>contractadd</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock contractadd &lt;filename&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Adds the specified smart contract into the /Downloads folder.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for contractadd</li>
+<li>-p, –path&nbsp;string&nbsp;: File path where the smart contract is located</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>contractcompile</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">whiteblock contractcompile &lt;filename&gt; [FLAGS]</span>
+</pre></div>
+</div>
+<p>Compiles the specified smart contract.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Flags:</dt>
+<dd><ul class="first last">
+<li>-h, –help: help for contractcompile</li>
+<li>-p, –path&nbsp;string: File path where the smart contract is located</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="websocket-apis">
+<h2>Websocket APIs<a class="headerlink" href="#websocket-apis" title="Permalink to this headline">¶</a></h2>
+<p><strong>Installation</strong></p>
+<ul class="simple">
+<li>clone repository</li>
+<li>cd router</li>
+<li>go get</li>
+<li>go build</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul class="simple">
+<li>go &gt;= 1.11.1</li>
+</ul>
+<p><strong>Documentation</strong></p>
+<p>Interaction:</p>
+<p>In order to allow a full range of accessibility to the platform, the router uses a WebSocket interface. Interaction is done through the socket io protocol, client libraries for this can be found here. The function name serves as both the sending and receiving event. The payload servers the parameters, if any, as defined in the next section.</p>
+<p><strong>Events</strong></p>
+<p>Stats</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>charts</dt>
+<dd><ul class="first last">
+<li>Description: Get the data for the front end charts</li>
+<li>Params: JSON object representing the blocks to retrieve data for. Set the end to -1 to get up to the current.</li>
+<li>Format: {“start”:&lt;start point,inclusive&gt;,”end”:&lt;end block,exclusive&gt;}</li>
+<li>Example: {“start”:1,”end”:1000}</li>
+<li>Response:</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;blockNumber&quot;</span><span class="p">:</span><span class="mi">553</span><span class="p">,</span>
+        <span class="nt">&quot;blockTime&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;numberOfTransactions&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;numberOfUncles&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span><span class="mi">6861391</span><span class="p">,</span>
+        <span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">21000</span><span class="p">,</span>
+        <span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="mi">1301725</span><span class="p">,</span>
+        <span class="nt">&quot;totalDifficulty&quot;</span><span class="p">:</span><span class="mi">632292281</span><span class="p">,</span>
+        <span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="mi">651</span><span class="p">,</span>
+        <span class="nt">&quot;miner&quot;</span><span class="p">:</span><span class="s2">&quot;0x47a3d6ea062083945f080a509234f771b26a99a9&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>chart_listener</dt>
+<dd><ul class="first last">
+<li>Description: Get the data for the front end charts. Will continue to stream new chart data as it comes in</li>
+<li>Params: The block number to start streaming the data at, leave empty to start from the beginning</li>
+<li>Format: [block number]</li>
+<li>Example: 1</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Response:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;blockNumber&quot;</span><span class="p">:</span><span class="mi">553</span><span class="p">,</span>
+    <span class="nt">&quot;blockTime&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;numberOfTransactions&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;numberOfUncles&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span><span class="mi">6861391</span><span class="p">,</span>
+    <span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">21000</span><span class="p">,</span>
+    <span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="mi">1301725</span><span class="p">,</span>
+    <span class="nt">&quot;totalDifficulty&quot;</span><span class="p">:</span><span class="mi">632292281</span><span class="p">,</span>
+    <span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="mi">651</span><span class="p">,</span>
+    <span class="nt">&quot;miner&quot;</span><span class="p">:</span><span class="s2">&quot;0x47a3d6ea062083945f080a509234f771b26a99a9&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>stats</dt>
+<dd><ul class="first last">
+<li>Description: get specific stats</li>
+<li>Params: JSON object representing the time frame. Set startTime to 0, to default to using the block numbers</li>
+<li>Format: {“startTime”:&lt;unix time stamp&gt;,”endTime”:&lt;unix time stamp&gt;,”startBlock”:&lt;block number&gt;,”endBlock”:&lt;block number&gt;}</li>
+<li>Example: {“startTime”:0,”endTime”:0,”startBlock”:3,”endBlock”:20}</li>
+<li>Example: {“startTime”:1542825482,”endTime”:1542840263,”startBlock”:0,”endBlock”:0}</li>
+<li>Response:</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Response:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;difficulty&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">1002271</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">2121.3641248027275</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">999010</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;totalDifficulty&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">20020556</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">4606480.1924615465</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mf">12518222.9375</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gasLimit&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">4074846</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">18194.434054363843</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mf">4045176.9375</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gasUsed&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;blockTime&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">2.250925735484551</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">3</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;transactionCount&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;uncleCount&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;tps&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>all_stats</dt>
+<dd><ul class="first last">
+<li>Description: Get the current overtime chain statistics</li>
+<li>Params: None</li>
+<li>Response:</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;difficulty&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">1002271</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">2121.3641248027275</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">999010</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;totalDifficulty&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">20020556</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">4606480.1924615465</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mf">12518222.9375</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gasLimit&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">4074846</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">18194.434054363843</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mf">4045176.9375</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gasUsed&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;blockTime&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mf">2.250925735484551</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">3</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;transactionCount&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;uncleCount&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;tps&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Emulate</strong></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>netconfig</dt>
+<dd><ul class="first last">
+<li>Description: Set the network conditions</li>
+<li>Params: Command to execute</li>
+<li>Format: &lt;command&gt;</li>
+<li>Example: engine 1 path 1 show</li>
+<li>Response: stdout of the command on the network emulator</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Build</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>get_nodes</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the currently running nodes</li>
+<li>Params: None</li>
+<li>Response: JSON Representation of the nodes. e.g. [{“name”:”whiteblock-node0”,”server”:4},…]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>exec</dt>
+<dd><ul class="first last simple">
+<li>Description: Run a command on a node</li>
+<li>Params: The block number</li>
+<li>Format: {“server”:&lt;server id&gt;,”node”:&lt;node number&gt;,”command”:&lt;command to run&gt;}</li>
+<li>Example: {“server”:4,”node”:0,”command”:”ls -l”}</li>
+<li>Response: stdout of the command</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>get_servers</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the availible servers</li>
+<li>Params: None</li>
+<li>Response: JSON Representation of the servers.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>build</dt>
+<dd><ul class="first simple">
+<li>Description: Builds out the network according to the given specifications, sets up the infrastructure and does all of the necessary program build steps</li>
+<li>Params: JSON Object representing the requested network</li>
+<li>Format:{“servers”:&lt;array of the server ids to be built on&gt;,”blockchain”:&lt;The block chain to build&gt;,”nodes”:&lt;The number of nodes in the network&gt;,”image”:&lt;The docker image to build off of&gt;,”resources”:{“cpus”:&lt;The number of cpus to use as a decimal value&gt;,”memory”:&lt;The hard memory limit for each node&gt;}}</li>
+<li>Response: None. Note: that the build status can be seen from the event ‘build_status’</li>
+<li>Example:</li>
+</ul>
+<div class="last highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;servers&quot;</span><span class="p">:[</span><span class="mi">3</span><span class="p">],</span>
+    <span class="nt">&quot;blockchain&quot;</span><span class="p">:</span><span class="s2">&quot;ethereum&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="s2">&quot;ethereum:latest&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;cpus&quot;</span><span class="p">:</span><span class="s2">&quot;2.5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="s2">&quot;12gb&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;chainId&quot;</span><span class="p">:</span> <span class="mi">12345</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>get_params</dt>
+<dd><ul class="first simple">
+<li>Description: Get the blockchain specific params for a blockchain</li>
+<li>Params: The blockchain to get the build params of</li>
+<li>Format:&lt;blockchain&gt;</li>
+<li>Response: The params as a list of key value params, of name and type respectively</li>
+<li>Example:</li>
+</ul>
+<div class="last highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;chainId&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;networkId&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;initBalance&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;maxPeers&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;homesteadBlock&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;eip155Block&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;eip158Block&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Generics</strong></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>forward</dt>
+<dd><ul class="first last">
+<li>forward {“nodes”:[&lt;node1&gt;,…&lt;noden&gt;],”port”:&lt;port&gt;,”data”:”&lt;data to send to all the nodes given&gt;”}</li>
+<li>forward tcp data to specific nodes, pass data with c string escapes and receive data back with c string escapes, in a json array of strings</li>
+<li>Example: {“nodes”:[1,2],”port”:80,”data”:”GET / HTTP/1.1rnrn”}</li>
+<li>Response: JSON Array of the responses</li>
+<li>Response Example: [“HTTP/1.1 200 OKrnrn”]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Ethereum</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>eth::get_block_number</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the current highest block number of the chain</li>
+<li>Params: None</li>
+<li>Response: The block number e.g. 10</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_block</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the data of a block</li>
+<li>Params: The block number</li>
+<li>Format: &lt;Block Number&gt;</li>
+<li>Example: 10</li>
+<li>Response: JSON Representation of the block. Example</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_accounts</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the unlocked accounts</li>
+<li>Params: None</li>
+<li>Response: A JSON array of the accounts</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_balance</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the current balance of an account</li>
+<li>Params: Account address</li>
+<li>Format: &lt;address&gt;</li>
+<li>Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab</li>
+<li>Response: The integer balance of the account in wei</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::send_transaction</dt>
+<dd><ul class="first last simple">
+<li>Description: Send a transaction between two accounts</li>
+<li>Params: Sending account, receiving account, gas, gas price, amount to send, transaction data, nonce</li>
+<li>Format: &lt;from&gt; &lt;to&gt; &lt;gas&gt; &lt;gas price&gt; &lt;value&gt; [data] [nonce]</li>
+<li>Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab 0x8d12a197cb00d4747a1fe03395095ce2a5cc6819 0x015f90 0x165a0bc00 0xde0b6b3a7640000</li>
+<li>Response: The transaction hash</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_transaction_count</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the transaction count sent from an address, optionally by block</li>
+<li>Params: The sender account, a block number</li>
+<li>Format: &lt;address&gt; [block number]</li>
+<li>Example: 0xbfa767eae64753e4c426ea42470abf7e4fc305ab</li>
+<li>Response: The transaction count</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_transaction</dt>
+<dd><ul class="first last simple">
+<li>Description: Get a transaction by its hash</li>
+<li>Params: The transaction hash</li>
+<li>Format: &lt;hash&gt;</li>
+<li>Example: 0x402c257c85c398154b8b16fa612df13e197135f63d1be9e03b6d2d55285e8670</li>
+<li>Response: JSON representation of the transaction. Example</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_transaction_receipt</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the transaction receipt by the tx hash</li>
+<li>Params: The transaction hash</li>
+<li>Format: &lt;hash&gt;</li>
+<li>Example: 0x402c257c85c398154b8b16fa612df13e197135f63d1be9e03b6d2d55285e8670</li>
+<li>Response: JSON representation of the transaction receipt. Example</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_hash_rate</dt>
+<dd><ul class="first last simple">
+<li>Description: Get the current hash rate per node</li>
+<li>Params: None</li>
+<li>Response: The hash rate of a single node in the network</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::start_transactions</dt>
+<dd><ul class="first last simple">
+<li>Description: Start sending transactions according to the given parameters, value = -1 means randomize value.</li>
+<li>Params: The amount of transactions to send in a second, the value of each transaction in wei, the destination for the transaction</li>
+<li>Format: &lt;tx/s&gt; &lt;value&gt; [destination]</li>
+<li>Example: 100 0xde0b6b3a7640000 0x8d12a197cb00d4747a1fe03395095ce2a5cc6819</li>
+<li>Response: None</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::stop_transactions</dt>
+<dd><ul class="first last simple">
+<li>Description: Stops the sending of transactions if transactions are currently being sent</li>
+<li>Params: None</li>
+<li>Response: None</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::start_mining</dt>
+<dd><ul class="first last simple">
+<li>Description: Send the start mining signal to nodes, may take a while to take effect due to DAG generation</li>
+<li>Params: A list of the nodes to start mining or None for all nodes</li>
+<li>Format: [node 1 number] [node 2 number]…</li>
+<li>Example: 0 1 2 3</li>
+<li>Response: The number of nodes which successfully received the signal to start mining</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::stop_mining</dt>
+<dd><ul class="first last simple">
+<li>Description: Send the stop mining signal to nodes</li>
+<li>Params: A list of the nodes to stop mining or None for all nodes</li>
+<li>Format: [node 1 number] [node 2 number]…</li>
+<li>Example: 0 1 2 3</li>
+<li>Response: The number of nodes which successfully received the signal to stop mining</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::block_listener</dt>
+<dd><ul class="first last simple">
+<li>Description: Get all blocks and continue to subscribe to new blocks</li>
+<li>Params: The block number to start at or None for all blocks</li>
+<li>Format: [block number]</li>
+<li>Example: 12</li>
+<li>Response: Will emit on eth::block_listener for every block after the given block or 0 that exists/has been created</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eth::get_recent_sent_tx</dt>
+<dd><ul class="first simple">
+<li>Description: Get a number of the most recent transactions sent</li>
+<li>Params: The number of transactions to retrieve</li>
+<li>Format: [number]</li>
+<li>Example: 5</li>
+<li>Response: Data on the 5 last sent transactions</li>
+<li>Response Example:</li>
+</ul>
+<div class="last highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;results&quot;</span><span class="p">:[{</span><span class="nt">&quot;statement_id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;series&quot;</span><span class="p">:[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;transactions&quot;</span><span class="p">,</span><span class="nt">&quot;columns&quot;</span><span class="p">:[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="s2">&quot;from&quot;</span><span class="p">,</span><span class="s2">&quot;gas&quot;</span><span class="p">,</span><span class="s2">&quot;gas_price&quot;</span><span class="p">,</span><span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="s2">&quot;txid&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">],</span><span class="nt">&quot;values&quot;</span><span class="p">:[[</span><span class="s2">&quot;2018-11-08T18:02:59.700086831Z&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x1949d6d0dfb19048563b602d9a02c06420421429\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15f90\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x3B9ACA00\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xd9075634d9725f05a1a84343fb40a31d9964ffa5\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xaffad4a457d79448f211654be8eae1ca6fa8e005936d72528d394fe724adb903\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;0xDE0B6B3A7640000&quot;</span><span class="p">],[</span><span class="s2">&quot;2018-11-08T18:02:59.698273467Z&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x1949d6d0dfb19048563b602d9a02c06420421429\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15f90\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x3B9ACA00\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xd9075634d9725f05a1a84343fb40a31d9964ffa5\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x8f08bc904c7fbf2e3c695bd71237432137e4f22a20287eda880ed8b409032580\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;0xDE0B6B3A7640000&quot;</span><span class="p">],[</span><span class="s2">&quot;2018-11-08T18:02:59.655393436Z&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xd9075634d9725f05a1a84343fb40a31d9964ffa5\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15f90\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x3B9ACA00\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xe33e509fea81ea03333a3659c98108196ac438a7\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x21ed0c41959ec9aecf36461cd5b42e65505090e8dbd514ba3b123a3889a5735e\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;0xDE0B6B3A7640000&quot;</span><span class="p">],[</span><span class="s2">&quot;2018-11-08T18:02:59.651551261Z&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x1949d6d0dfb19048563b602d9a02c06420421429\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15f90\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x3B9ACA00\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xd9075634d9725f05a1a84343fb40a31d9964ffa5\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xfc9b2658bdc95669ffd38e8ff02b9995d894542db52161fbe41ee5dcaed70628\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;0xDE0B6B3A7640000&quot;</span><span class="p">],[</span><span class="s2">&quot;2018-11-08T18:02:59.628233357Z&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xd9075634d9725f05a1a84343fb40a31d9964ffa5\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15f90\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x3B9ACA00\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0xe33e509fea81ea03333a3659c98108196ac438a7\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;\&quot;0x15597db936fc88d8a781ea7da6dce1260a05f10070ab75cd8328659d1343390a\&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;0xDE0B6B3A7640000&quot;</span><span class="p">]]}]}]}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Syscoin</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>sys::start_test</dt>
+<dd><ul class="first simple">
+<li>Description: Start the propogation/tps test for syscoin</li>
+<li>Params: The max number of test results to retrieve</li>
+<li>Format: {“waitTime”:&lt;seconds to wait&gt;,”minCompletePercent”:&lt;percentage&gt;,”numberOfTransactions”:&lt;number of tx&gt;}</li>
+<li>Example:</li>
+</ul>
+<div class="last highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;waitTime&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span>
+    <span class="nt">&quot;minCompletePercent&quot;</span><span class="p">:</span><span class="mf">97.7</span><span class="p">,</span>
+    <span class="nt">&quot;numberOfTransactions&quot;</span><span class="p">:</span><span class="mi">500</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>sys::get_recent_test_results</dt>
+<dd><ul class="first last simple">
+<li>Description: Get recent test results</li>
+<li>Params: The max number of test results to retrieve</li>
+<li>Format: [number]</li>
+<li>Example: 5</li>
+<li>Response: Data on the last x test results</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Building the network</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Attempting to build the network&quot;</span><span class="p">)</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">,</span><span class="s1">&#39;{&quot;servers&quot;:[3],&quot;blockchain&quot;:&quot;ethereum&quot;,&quot;nodes&quot;:3,&quot;image&quot;:&quot;ethereum:latest&quot;}&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;build_status&quot;</span><span class="p">,(</span><span class="nx">msg</span><span class="p">)=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received status of &quot;</span><span class="o">+</span><span class="nx">msg</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">progress</span> <span class="o">==</span> <span class="mi">100</span><span class="p">){</span>
+        <span class="c1">//The network has been built</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">socket</span><span class="p">.</span><span class="nx">open</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>Starting the transactions</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Starting the transactions&quot;</span><span class="p">)</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;eth::stop_transactions&quot;</span><span class="p">)</span><span class="c1">//kill any previous transaction logic</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;eth::start_transactions&quot;</span><span class="p">,</span><span class="s2">&quot;1 0xde0b6b3a7640000&quot;</span><span class="p">)</span><span class="c1">//Start sending the transactions</span>
+<span class="p">})</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>Configuration</strong></p>
+<p>The endpoints of the router are set through the config.json file. The program will search for this file in the directory from which it is called. The following parameters can be set in the configuration file</p>
+<ul class="simple">
+<li>genesis: The socket endpoint of the genesis program</li>
+<li>rpc: The socket endpoint of the rpc program</li>
+<li>influx: The socket endpoint for influx db (Can be different from the one for rpc)</li>
+<li>listen: The port on which this program will bind to</li>
+<li>update-interval: The interval, in ms, on which the router will poll, for events which require polling, such as build status</li>
+<li>netropy: The ip address of the netropy</li>
+<li>netropy-user: The login username for the netropy</li>
+<li>netropy-password: The login password for the netropy</li>
+<li>record: The socket endpoint for the record application</li>
+<li>tls: Whether this program should server content over TLS</li>
+<li>cert: The TLS certificate</li>
+<li>key: The TLS key</li>
+</ul>
+<p><strong>Block Chain Specific Parameters</strong></p>
+<p><strong>Geth (Go-Ethereum)</strong></p>
+<p><strong>Note</strong>: Any configuration option can be left out, and this entire section can even be null, the example contains all of the defaults</p>
+<p><strong>Options</strong></p>
+<ul class="simple">
+<li>chainId: The chain id set in the genesis.conf</li>
+<li>networkId: The network id</li>
+<li>difficulty: The initial difficulty set in the genesis.conf file</li>
+<li>initBalance: The initial balance for the accounts</li>
+<li>maxPeers: The maximum number of peers for each node</li>
+<li>gasLimit: The initial gas limit</li>
+<li>homesteadBlock: Set in genesis.conf</li>
+<li>eip155Block: Set in genesis.conf</li>
+<li>eip158Block: Set in genesis.conf</li>
+</ul>
+<p>Example (using defaults)</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;chainId&quot;</span><span class="o">:</span><span class="mi">15468</span><span class="p">,</span>
+    <span class="s2">&quot;networkId&quot;</span><span class="o">:</span><span class="mi">15468</span><span class="p">,</span>
+    <span class="s2">&quot;difficulty&quot;</span><span class="o">:</span><span class="mi">100000</span><span class="p">,</span>
+    <span class="s2">&quot;initBalance&quot;</span><span class="o">:</span><span class="mi">100000000000000000000</span><span class="p">,</span>
+    <span class="s2">&quot;maxPeers&quot;</span><span class="o">:</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;gasLimit&quot;</span><span class="o">:</span><span class="mi">4000000</span><span class="p">,</span>
+    <span class="s2">&quot;homesteadBlock&quot;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;eip155Block&quot;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;eip158Block&quot;</span><span class="o">:</span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Syscoin (RegTest)</strong></p>
+<p>Options:</p>
+<ul class="simple">
+<li>rpcUser: The username credential</li>
+<li>rpcPass: The password credential</li>
+<li>masterNodeConns: The number of connections to set up for the master nodes</li>
+<li>nodeConns: The number of connections to set up for the normal nodes</li>
+<li>percentMasternodes: The percentage of the network consisting of master nodes</li>
+<li>options: Options to set enabled for all nodes</li>
+<li>senderOptions: Options to set enabled for senders</li>
+<li>receiverOptions: Options to set enabled for receivers</li>
+<li>mnOptions: Options to set enabled for master nodes</li>
+<li>extras: Extra options to add to the config file for all nodes</li>
+<li>senderExtras: Extra options to add to the config file for senders</li>
+<li>receiverExtras: Extra options to add to the config file for receivers</li>
+<li>mnExtras: Extra options to add to the config file for master nodes</li>
+</ul>
+<p><strong>Example (using defaults)</strong></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;rpcUser&quot;</span><span class="p">:</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;rpcPass&quot;</span><span class="p">:</span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;masterNodeConns&quot;</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span>
+    <span class="nt">&quot;nodeConns&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+    <span class="nt">&quot;percentMasternodes&quot;</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span>
+    <span class="nt">&quot;options&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;server&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;regtest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;listen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rest&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;senderOptions&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;tpstest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;addressindex&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;mnOptions&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;receiverOptions&quot;</span><span class="p">:[</span>
+       <span class="s2">&quot;tpstest&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;extras&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;senderExtras&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;receiverExtras&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;mnExtras&quot;</span><span class="p">:[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 

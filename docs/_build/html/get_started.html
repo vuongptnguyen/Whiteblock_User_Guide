@@ -161,102 +161,106 @@
 <h2>Build The Network<a class="headerlink" href="#build-the-network" title="Permalink to this headline">¶</a></h2>
 <p>In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. Set the required server number to 2 and use the default parameter for the rest of the options.</p>
 <p>Command:</p>
-<p>$ whiteblock build
-Output:</p>
-<p>blockchain (default set to: ethereum):
-nodes (default set to: 10):
-image (default set to: ethereum:latest):
-cpus (default set to: no limit):
-memory (default set to: no limit):
-Use default parameters? (y/n) y
-2018/12/13 20:07:50 build:  Build in Progress
-Building: 100.000000
-Done</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock build
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">blockchain (default set to: ethereum):</span>
+<span class="go">nodes (default set to: 10):</span>
+<span class="go">image (default set to: ethereum:latest):</span>
+<span class="go">cpus (default set to: no limit):</span>
+<span class="go">memory (default set to: no limit):</span>
+<span class="go">Use default parameters? (y/n) y</span>
+<span class="go">2018/12/13 20:07:50 build:  Build in Progress</span>
+<span class="go">Building: 100.000000</span>
+<span class="go">Done</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="configure-network-conditions">
 <h2>Configure Network Conditions<a class="headerlink" href="#configure-network-conditions" title="Permalink to this headline">¶</a></h2>
 <p>To add network latency between nodes, you can use the following commands:</p>
-<p>$ whiteblock netconfig delay 1 1 200
-$ whiteblock netconfig on 1</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock netconfig delay <span class="m">1</span> <span class="m">1</span> <span class="m">200</span>
+<span class="gp">$</span> whiteblock netconfig on <span class="m">1</span>
+</pre></div>
+</div>
 <p>The first command above use the delay condition for network emulation. The command follow this format: delay &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt;.</p>
 <p>The first 1 refers to the emulation engine1, the second 1 refers to the VLAN path1. The 200 here refers to the one-way latency of 200ms. The second command above turn on the netconfig on engine1.</p>
 <p>To turn the netconfig off, you can write:</p>
-<p>$ whiteblock netconfig off 1</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock netconfig off <span class="m">1</span>
+</pre></div>
+</div>
 <p>To learn the format of how to use other netconfig parameters, please visit the Command Line Reference page.</p>
 </div>
 <div class="section" id="send-transactions">
 <h2>Send Transactions<a class="headerlink" href="#send-transactions" title="Permalink to this headline">¶</a></h2>
 <p>After configured the network condition, we want to run some transactions for throughput test. The transaction commands need to follow this format: whiteblock &lt;blockchain-interface&gt; send_transactions &lt;tx/s&gt; &lt;value&gt;. The &lt;blockchain-interface&gt; needs to be consistent with the blockchain type specified in the network building step. This will send transactions with the submission rate specified in the second argument &lt;tx/s&gt; and the amount of assets to send in the third parameter &lt;value&gt;, specified in hex. This will immediately begin transactions has the network been built properly.</p>
 <p>To start the transaction, run the following command:</p>
-<p>$ whiteblock geth start_transactions 100 0x545454
-started</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock geth start_transactions <span class="m">100</span> 0x545454
+<span class="go">started</span>
+</pre></div>
+</div>
 <p>To stop the transaction, run the following command</p>
-<p>$ whiteblock geth stop_transactions
-success</p>
-<p>Note: currently we only support geth for sending transaction through command line. To send transaction for other type of blockchains, you can use JSON RPC calls. Please refer to the Generics section in JSON RPC Interface for more information.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock geth stop_transactions
+<span class="go">success</span>
+</pre></div>
+</div>
+<p>Note: currently we only support geth for sending transaction through command line. To send transaction for other type of blockchains, you can use Websocket API calls. Please refer to the Generics section in the  Websocket API in <a class="reference internal" href="references.html"><span class="doc">References</span></a> for more information.</p>
 </div>
 <div class="section" id="examine-data">
 <h2>Examine Data<a class="headerlink" href="#examine-data" title="Permalink to this headline">¶</a></h2>
 <p>You may now go to the GUI and use our data visualization tools to examine the different data points that are being push directly from the blockchain.</p>
 <p>If you want to quickly check the stats of your current blockchain network, use the following command.</p>
 <p>Command:</p>
-<p>$whiteblock get stats all</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock get stats all
+</pre></div>
+</div>
 <p>Output:</p>
-<dl class="docutils">
-<dt>{</dt>
-<dd><dl class="first docutils">
-<dt>“blockTime”: {</dt>
-<dd>“max”: 70,
-“mean”: 1.2978947368421072,
-“standardDeviation”: 1.7608896643379766</dd>
-</dl>
-<p>},
-“difficulty”: {</p>
-<blockquote>
-<div>“max”: 329333,
-“mean”: 214993.2977380325,
-“standardDeviation”: 56914.20143516361</div></blockquote>
-<p>},
-“gasLimit”: {</p>
-<blockquote>
-<div>“max”: 8000000,
-“mean”: 7168060.679642294,
-“standardDeviation”: 1286432.4077131029</div></blockquote>
-<p>},
-“gasUsed”: {</p>
-<blockquote>
-<div>“max”: 7917000,
-“mean”: 534323.5139400318,
-“standardDeviation”: 1538475.9696957779</div></blockquote>
-<p>},
-“totalDifficulty”: {</p>
-<blockquote>
-<div>“max”: 408802259,
-“mean”: 173546242.58337703,
-“standardDeviation”: 117177703.83311588</div></blockquote>
-<p>},
-“tps”: {</p>
-<blockquote>
-<div>“max”: 377,
-“mean”: 18.855407894736842,
-“standardDeviation”: 58.25808243503218</div></blockquote>
-<p>},
-“transactionCount”: {</p>
-<blockquote>
-<div>“max”: 377,
-“mean”: 25.443976854287218,
-“standardDeviation”: 73.26076046170377</div></blockquote>
-<p>},
-“uncleCount”: {</p>
-<blockquote>
-<div>“max”: 1,
-“mean”: 0.11204629142556508,
-“standardDeviation”: 0.3154233979959995</div></blockquote>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>}</p>
-<p>To learn more about how to use our command line features, please visit the Command Line Reference page.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;blockTime&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">1.2978947368421072</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">1.7608896643379766</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;difficulty&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">329333</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">214993.2977380325</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">56914.20143516361</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;gasLimit&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">8000000</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">7168060.679642294</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">1286432.4077131029</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">7917000</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">534323.5139400318</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">1538475.9696957779</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;totalDifficulty&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">408802259</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">173546242.58337703</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">117177703.83311588</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;tps&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">377</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">18.855407894736842</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">58.25808243503218</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;transactionCount&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">377</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">25.443976854287218</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">73.26076046170377</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;uncleCount&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;max&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">0.11204629142556508</span><span class="p">,</span>
+    <span class="nt">&quot;standardDeviation&quot;</span><span class="p">:</span> <span class="mf">0.3154233979959995</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To learn more about how to use our command line features, please visit the <a class="reference internal" href="references.html"><span class="doc">References</span></a> page.</p>
 </div>
 </div>
 
