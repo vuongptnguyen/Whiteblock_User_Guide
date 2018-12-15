@@ -5,7 +5,7 @@ Get Started
 
 Build The Network
 =========================
-In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. Set the required server number to 2 and use the default parameter for the rest of the options.  
+In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. For simplicity, just use the default parameters for all the options.  
 
 Command: 
 
