@@ -326,7 +326,7 @@ Response: stdout of the command
     - -h, --help : help for ssh
     - -a, --server-addr : server address with port 5000 (default "localhost:5000")
 
-Version
+version
 =============================
 
 .. code-block:: console
