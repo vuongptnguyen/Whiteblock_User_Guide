@@ -5,7 +5,9 @@ Get Started
 
 Build The Network
 =========================
-In this step, we create and deploy a selected blockchain network with the specified client and number of nodes. The Whiteblock platform provisions each node to interact independently as a participant of the blockchain network. Nodes are logically separated from one another within their own Local Area Network (LAN). After running the build command as shown below, you will be prompted to customized your blockchain, this includes configuring the Wide Area Network (WAN) links between each node with latency, packet loss, bandwidth constraints, and other common network characteristics. If this is your first time using the Whiteblock platform, it may be easier to use the default parameters for each option.  
+In this step, we create and deploy a selected blockchain network with the specified client and number of nodes. The Whiteblock platform provisions each node as an independent participant within the blockchain network. Nodes are logically separated from one another within their own Local Area Network (LAN). 
+
+After running the build command as shown below, you will be prompted to customize the blockchain network, this includes configuring the Wide Area Network (WAN) links between each node with latency, packet loss, bandwidth constraints, and other common network characteristics. If this is your first time using the Whiteblock platform, it may be easier to stick with the default parameters provided for each option.  
 
 Command: 
 
