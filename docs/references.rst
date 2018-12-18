@@ -232,9 +232,7 @@ netconfig
   
   whiteblock netconfig <command> [FLAGS]
 
-Aliases: emulate
-
-Netconfig will introduce persisting network conditions for testing. Use '?' at any time for more help on configuring the network.
+Netconfig will introduce persistnace network conditions for testing. Use '?' at any time for more help on configuring the network.
 
 Custom Command: netconfig <engine number> <path number> <command>
 
@@ -313,7 +311,8 @@ Turn on emulation.
 - Flags:
     - -h, --help: help for on
 
-**ssh**
+SSH 
+=============================
 
 .. code-block:: console
   
@@ -327,7 +326,8 @@ Response: stdout of the command
     - -h, --help : help for ssh
     - -a, --server-addr : server address with port 5000 (default "localhost:5000")
 
-**version**
+Version
+=============================
 
 .. code-block:: console
 
@@ -337,6 +337,9 @@ Get whiteblock CLI client version
 
 - Flags:
   - -h, --help : help for version
+
+Smart Contracts
+=============================
 
 **contractadd**
 
@@ -362,8 +365,6 @@ Compiles the specified smart contract.
     - -h, --help: help for contractcompile
     - -p, --path string: File path where the smart contract is located
 
-Ethereum
-=========================
 Ethereum
 =============================
 
