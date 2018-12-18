@@ -42,16 +42,18 @@ To add network latency between nodes, use the following commands:
 .. code-block:: console
 
   $ whiteblock netconfig delay 1 1 200
+
+
+The above commands configure the amount of latency between nodes and follows this format: delay <engine number> <path number> <amount>.
+
+The first `1` value refers to emulation engine 1, the second 1 refers to VLAN path 1. The `200` valuerefers to the total amount of one-way latency, which translates to milliseconds. 
+
   $ whiteblock netconfig on 1
 
 
-The first command above use the delay condition for network emulation. The command follow this format: delay <engine number> <path number> <amount>.
+This command turns the netconfig engine on and implements latency on  on engine 1. 
 
-The first 1 refers to the emulation engine1, the second 1 refers to the VLAN path1. The 200 here refers to the one-way latency of 200ms. The second command above turn on the netconfig on engine1. 
-
-
-
-To turn the netconfig off, you can write: 
+To turn disbale netconfig, use the following command: 
 
 .. code-block:: console
 
@@ -64,11 +66,13 @@ For more advanced netconfig parameters, please visit the Command Line Reference 
 
 
 
-Send Transactions
+Automate Transactions
 =========================
-After configuring network conditions, transactional logic can be defined and automated for such purposes as throughput tests. Transaction commands adhere to the following format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the specified client indicated when the network is built. This will send transactions with the specified submission rate in the second argument <tx/s> and the amount of assets to send in the third parameter <value>, specified in hex. This will immediately begin transactions has the network been built properly. 
+After configuring network conditions, transactional logic can be defined and automated for such purposes as throughput tests. Transaction commands adhere to the following format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the relevant command used by the client that was indicated when the network was built. 
 
-To start the transaction, run the following command: 
+The transaction engine will automate transactions according to the specified submission rate in the second argument <tx/s> and the amount of assets sent in the third parameter <value>, which is specified in hex. This will immediately begin transactions once the network is finished building, but these values can also be configured and altered once the network has already been built. 
+
+To start transactions, run the following command: 
 
 .. code-block:: console
 
