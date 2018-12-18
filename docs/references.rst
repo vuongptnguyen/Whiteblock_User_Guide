@@ -25,7 +25,17 @@ This application will deploy a blockchain, create nodes, and allow those nodes t
 - Flags:
     - -h, --help : help for whiteblock
 
-**build**
+Fowarding Commands
+=========================
+- forward
+    - forward {"nodes":[<node1>,...<noden>],"port":<port>,"data":"<data to send to all the nodes given>"}
+    - forward tcp data to specific nodes, pass data with c string escapes and receive data back with c string escapes, in a json array of strings
+    - Example: {"nodes":[1,2],"port":80,"data":"GET / HTTP/1.1\r\n\r\n"}
+    - Response: JSON Array of the responses
+    - Response Example: ["HTTP/1.1 200 OK\r\n\r\n"]
+
+Build
+=========================
 
 .. code-block:: console
 
@@ -39,7 +49,8 @@ Build will create and deploy a blockchain and the specified number of nodes. Eac
     - -h, --help: help for build
     - -a, --server-addr string: server address with port 5000 (default "localhost:5000")
 
-**get**
+get
+=========================
 
 .. code-block:: console
 
@@ -215,7 +226,145 @@ Response: JSON representation of network statistics
     - -h, --help : help for time
     - -a, --server-addr string: server address with port 5000 (default "localhost:5000")
 
+netconfig
+=========================
 
+.. code-block:: console
+  
+  whiteblock netconfig <command> [FLAGS]
+
+Aliases: emulate
+
+Netconfig will introduce persisting network conditions for testing. Use '?' at any time for more help on configuring the network.
+
+Custom Command: netconfig <engine number> <path number> <command>
+
+set delay <amount> Specifies the latency to add [ms]; set loss loss <amount> Specifies the amount of packet loss to add [%]; set bw <amount> <type> Specifies the bandwidth of the network [bps|Kbps|Mbps|Gbps];
+
+- Available Commands:
+    - bandwidth Set bandwidth
+    - delay Set latency
+    - loss Set packetloss
+    - off Turn off emulation
+    - on Turn on emulation
+
+- Flags:
+    -h, --help: help for netconfig
+
+**netconfig bandwidth**
+
+.. code-block:: console
+
+  whiteblock netconfig bandwidth <engine number> <path number> <amount> <bandwidth type> [FLAGS]
+
+Aliases: bw
+
+Bandwidth will constrict the network to the specified bandwidth. You will specify the amount of bandwdth and the type.
+
+Fomat: bandwidth type: bps, Kbps, Mbps, Gbps
+
+- Flags:
+    - -h, --help: help for bandwidth
+
+**netconfig delay**
+
+.. code-block:: console
+  
+  whiteblock netconfig delay <engine number> <path number> <amount> [FLAGS]
+
+Aliases: delay, latancy, lat
+
+Latency will introduce delay to the network. You will specify the amount of latency in ms.
+
+- Flags:
+    - -h, --help: help for latency
+
+**netconfig loss**
+
+.. code-block:: console
+  
+  whiteblock netconfig loss <engine number> <path number> <percent> [FLAGS]
+
+Aliases: packetloss
+
+Packetloss will drop packets in the network. You will specify the amount of packet loss in %.
+
+- Flags:
+    - -h, --help: help for loss
+
+**netconfig off**
+
+.. code-block:: console
+
+  whiteblock netconfig off <engine number> [FLAGS]
+
+Turn off emulation.
+
+- Flags:
+    - -h, --help: help for off
+
+**netconfig on**
+
+.. code-block:: console
+  
+  whiteblock netconfig on <engine number> [FLAGS]
+
+Turn on emulation.
+
+- Flags:
+    - -h, --help: help for on
+
+**ssh**
+
+.. code-block:: console
+  
+  whiteblock ssh <server> <node> [FLAGS]
+
+SSH will allow the user to go into the contianer where the specified node exists.
+
+Response: stdout of the command
+
+- Flags:
+    - -h, --help : help for ssh
+    - -a, --server-addr : server address with port 5000 (default "localhost:5000")
+
+**version**
+
+.. code-block:: console
+
+  whiteblock version
+
+Get whiteblock CLI client version
+
+- Flags:
+  - -h, --help : help for version
+
+**contractadd**
+
+.. code-block:: console
+  
+  whiteblock contractadd <filename> [FLAGS]
+
+Adds the specified smart contract into the /Downloads folder.
+
+- Flags:
+    - -h, --help: help for contractadd
+    - -p, --path string : File path where the smart contract is located
+
+**contractcompile**
+
+.. code-block:: console
+  
+  whiteblock contractcompile <filename> [FLAGS]
+
+Compiles the specified smart contract.
+
+- Flags:
+    - -h, --help: help for contractcompile
+    - -p, --path string: File path where the smart contract is located
+
+Ethereum
+=========================
 **geth**
 
 .. code-block:: console
@@ -439,109 +588,42 @@ Stops the sending of transactions if transactions are currently being sent
 
 - Flags:
     - -h, --help: help for stop_transactions
+    
+ **Geth (Go-Ethereum)**
 
-**netconfig**
+**Note**: Any configuration option can be left out, and this entire section can even be null, the example contains all of the defaults
 
-.. code-block:: console
-  
-  whiteblock netconfig <command> [FLAGS]
+**Options**
 
-Aliases: emulate
+- chainId: The chain id set in the genesis.conf
+- networkId: The network id
+- difficulty: The initial difficulty set in the genesis.conf file
+- initBalance: The initial balance for the accounts
+- maxPeers: The maximum number of peers for each node
+- gasLimit: The initial gas limit
+- homesteadBlock: Set in genesis.conf
+- eip155Block: Set in genesis.conf
+- eip158Block: Set in genesis.conf
 
-Netconfig will introduce persisting network conditions for testing. Use '?' at any time for more help on configuring the network.
+**Example (using defaults)**
 
-Custom Command: netconfig <engine number> <path number> <command>
+.. code-block:: javascript
 
-set delay <amount> Specifies the latency to add [ms]; set loss loss <amount> Specifies the amount of packet loss to add [%]; set bw <amount> <type> Specifies the bandwidth of the network [bps|Kbps|Mbps|Gbps];
+  {
+      "chainId":15468,
+      "networkId":15468,
+      "difficulty":100000,
+      "initBalance":100000000000000000000,
+      "maxPeers":1000,
+      "gasLimit":4000000,
+      "homesteadBlock":0,
+      "eip155Block":0,
+      "eip158Block":0
+  }
 
-- Available Commands:
-    - bandwidth Set bandwidth
-    - delay Set latency
-    - loss Set packetloss
-    - off Turn off emulation
-    - on Turn on emulation
 
-- Flags:
-    -h, --help: help for netconfig
-
-**netconfig bandwidth**
-
-.. code-block:: console
-
-  whiteblock netconfig bandwidth <engine number> <path number> <amount> <bandwidth type> [FLAGS]
-
-Aliases: bw
-
-Bandwidth will constrict the network to the specified bandwidth. You will specify the amount of bandwdth and the type.
-
-Fomat: bandwidth type: bps, Kbps, Mbps, Gbps
-
-- Flags:
-    - -h, --help: help for bandwidth
-
-**netconfig delay**
-
-.. code-block:: console
-  
-  whiteblock netconfig delay <engine number> <path number> <amount> [FLAGS]
-
-Aliases: delay, latancy, lat
-
-Latency will introduce delay to the network. You will specify the amount of latency in ms.
-
-- Flags:
-    - -h, --help: help for latency
-
-**netconfig loss**
-
-.. code-block:: console
-  
-  whiteblock netconfig loss <engine number> <path number> <percent> [FLAGS]
-
-Aliases: packetloss
-
-Packetloss will drop packets in the network. You will specify the amount of packet loss in %.
-
-- Flags:
-    - -h, --help: help for loss
-
-**netconfig off**
-
-.. code-block:: console
-
-  whiteblock netconfig off <engine number> [FLAGS]
-
-Turn off emulation.
-
-- Flags:
-    - -h, --help: help for off
-
-**netconfig on**
-
-.. code-block:: console
-  
-  whiteblock netconfig on <engine number> [FLAGS]
-
-Turn on emulation.
-
-- Flags:
-    - -h, --help: help for on
-
-**ssh**
-
-.. code-block:: console
-  
-  whiteblock ssh <server> <node> [FLAGS]
-
-SSH will allow the user to go into the contianer where the specified node exists.
-
-Response: stdout of the command
-
-- Flags:
-    - -h, --help : help for ssh
-    - -a, --server-addr : server address with port 5000 (default "localhost:5000")
-
-**sys**
+Syscoin
+=========================
 
 .. code-block:: console
   
@@ -596,40 +678,6 @@ Format: <test number> Params: Test number
     - -h, --help : help for results
     - -a, --server-addr string: server address with port 5000 (default "localhost:5000")
 
-**version**
-
-.. code-block:: console
-
-  whiteblock version
-
-Get whiteblock CLI client version
-
-- Flags:
-  - -h, --help : help for version
-
-**contractadd**
-
-.. code-block:: console
-  
-  whiteblock contractadd <filename> [FLAGS]
-
-Adds the specified smart contract into the /Downloads folder.
-
-- Flags:
-    - -h, --help: help for contractadd
-    - -p, --path string : File path where the smart contract is located
-
-**contractcompile**
-
-.. code-block:: console
-  
-  whiteblock contractcompile <filename> [FLAGS]
-
-Compiles the specified smart contract.
-
-- Flags:
-    - -h, --help: help for contractcompile
-    - -p, --path string: File path where the smart contract is located
 
 
 Websocket APIs
@@ -880,16 +928,9 @@ Response:
           {"eip158Block":"int"}
       ]
 
-**Generics**
 
-- forward
-    - forward {"nodes":[<node1>,...<noden>],"port":<port>,"data":"<data to send to all the nodes given>"}
-    - forward tcp data to specific nodes, pass data with c string escapes and receive data back with c string escapes, in a json array of strings
-    - Example: {"nodes":[1,2],"port":80,"data":"GET / HTTP/1.1\r\n\r\n"}
-    - Response: JSON Array of the responses
-    - Response Example: ["HTTP/1.1 200 OK\r\n\r\n"]
-
-**Ethereum**
+Ethereum
+=============================
 
 - eth::get_block_number
     - Description: Get the current highest block number of the chain
@@ -979,7 +1020,56 @@ Response:
 
       {"results":[{"statement_id":0,"series":[{"name":"transactions","columns":["time","from","gas","gas_price","to","txid","value"],"values":[["2018-11-08T18:02:59.700086831Z","\"0x1949d6d0dfb19048563b602d9a02c06420421429\"","\"0x15f90\"","\"0x3B9ACA00\"","\"0xd9075634d9725f05a1a84343fb40a31d9964ffa5\"","\"0xaffad4a457d79448f211654be8eae1ca6fa8e005936d72528d394fe724adb903\"","0xDE0B6B3A7640000"],["2018-11-08T18:02:59.698273467Z","\"0x1949d6d0dfb19048563b602d9a02c06420421429\"","\"0x15f90\"","\"0x3B9ACA00\"","\"0xd9075634d9725f05a1a84343fb40a31d9964ffa5\"","\"0x8f08bc904c7fbf2e3c695bd71237432137e4f22a20287eda880ed8b409032580\"","0xDE0B6B3A7640000"],["2018-11-08T18:02:59.655393436Z","\"0xd9075634d9725f05a1a84343fb40a31d9964ffa5\"","\"0x15f90\"","\"0x3B9ACA00\"","\"0xe33e509fea81ea03333a3659c98108196ac438a7\"","\"0x21ed0c41959ec9aecf36461cd5b42e65505090e8dbd514ba3b123a3889a5735e\"","0xDE0B6B3A7640000"],["2018-11-08T18:02:59.651551261Z","\"0x1949d6d0dfb19048563b602d9a02c06420421429\"","\"0x15f90\"","\"0x3B9ACA00\"","\"0xd9075634d9725f05a1a84343fb40a31d9964ffa5\"","\"0xfc9b2658bdc95669ffd38e8ff02b9995d894542db52161fbe41ee5dcaed70628\"","0xDE0B6B3A7640000"],["2018-11-08T18:02:59.628233357Z","\"0xd9075634d9725f05a1a84343fb40a31d9964ffa5\"","\"0x15f90\"","\"0x3B9ACA00\"","\"0xe33e509fea81ea03333a3659c98108196ac438a7\"","\"0x15597db936fc88d8a781ea7da6dce1260a05f10070ab75cd8328659d1343390a\"","0xDE0B6B3A7640000"]]}]}]}
 
-**Syscoin**
+**Starting Transactions**
+
+.. code-block:: javascript
+
+  const io = require('socket.io-client')
+  const socket = io('http://localhost:5000', {
+      path: '/'
+  })
+
+  socket.on('connect', () => {
+      console.log("Starting the transactions")
+      socket.emit("eth::stop_transactions")//kill any previous transaction logic
+      socket.emit("eth::start_transactions","1 0xde0b6b3a7640000")//Start sending the transactions
+  })
+
+  socket.open();
+
+**Note**: Any configuration option can be left out, and this entire section can even be null, the example contains all of the defaults.
+
+**Ethereum Options**
+
+- chainId: The chain id set in the genesis.conf
+- networkId: The network id
+- difficulty: The initial difficulty set in the genesis.conf file
+- initBalance: The initial balance for the accounts
+- maxPeers: The maximum number of peers for each node
+- gasLimit: The initial gas limit
+- homesteadBlock: Set in genesis.conf
+- eip155Block: Set in genesis.conf
+- eip158Block: Set in genesis.conf
+
+Example (using defaults)
+
+.. code-block:: javascript
+
+  {
+      "chainId":15468,
+      "networkId":15468,
+      "difficulty":100000,
+      "initBalance":100000000000000000000,
+      "maxPeers":1000,
+      "gasLimit":4000000,
+      "homesteadBlock":0,
+      "eip155Block":0,
+      "eip158Block":0
+  }
+
+
+Syscoin
+=============================
 
 - sys::start_test
     - Description: Start the propogation/tps test for syscoin
@@ -1032,77 +1122,7 @@ Building the network
   })
 
   socket.open();
-
-**Starting the transactions**
-
-.. code-block:: javascript
-
-  const io = require('socket.io-client')
-  const socket = io('http://localhost:5000', {
-      path: '/'
-  })
-
-  socket.on('connect', () => {
-      console.log("Starting the transactions")
-      socket.emit("eth::stop_transactions")//kill any previous transaction logic
-      socket.emit("eth::start_transactions","1 0xde0b6b3a7640000")//Start sending the transactions
-  })
-
-  socket.open();
-
-**Configuration**
-
-The endpoints of the router are set through the config.json file. The program will search for this file in the directory from which it is called. The following parameters can be set in the configuration file
-
-- genesis: The socket endpoint of the genesis program
-- rpc: The socket endpoint of the rpc program
-- influx: The socket endpoint for influx db (Can be different from the one for rpc)
-- listen: The port on which this program will bind to
-- update-interval: The interval, in ms, on which the router will poll, for events which require polling, such as build status
-- netropy: The ip address of the netropy
-- netropy-user: The login username for the netropy
-- netropy-password: The login password for the netropy
-- record: The socket endpoint for the record application
-- tls: Whether this program should server content over TLS
-- cert: The TLS certificate
-- key: The TLS key
-
-
-**Block Chain Specific Parameters**
-
-**Geth (Go-Ethereum)**
-
-**Note**: Any configuration option can be left out, and this entire section can even be null, the example contains all of the defaults
-
-**Options**
-
-- chainId: The chain id set in the genesis.conf
-- networkId: The network id
-- difficulty: The initial difficulty set in the genesis.conf file
-- initBalance: The initial balance for the accounts
-- maxPeers: The maximum number of peers for each node
-- gasLimit: The initial gas limit
-- homesteadBlock: Set in genesis.conf
-- eip155Block: Set in genesis.conf
-- eip158Block: Set in genesis.conf
-
-Example (using defaults)
-
-.. code-block:: javascript
-
-  {
-      "chainId":15468,
-      "networkId":15468,
-      "difficulty":100000,
-      "initBalance":100000000000000000000,
-      "maxPeers":1000,
-      "gasLimit":4000000,
-      "homesteadBlock":0,
-      "eip155Block":0,
-      "eip158Block":0
-  }
-
-
+  
 **Syscoin (RegTest)**
 
 Options:
@@ -1150,3 +1170,20 @@ Options:
       "receiverExtras":[],
       "mnExtras":[]
   }
+
+**Configuration**
+
+The endpoints of the router are set through the config.json file. The program will search for this file in the directory from which it is called. The following parameters can be set in the configuration file
+
+- genesis: The socket endpoint of the genesis program
+- rpc: The socket endpoint of the rpc program
+- influx: The socket endpoint for influx db (Can be different from the one for rpc)
+- listen: The port on which this program will bind to
+- update-interval: The interval, in ms, on which the router will poll, for events which require polling, such as build status
+- record: The socket endpoint for the record application
+- tls: Whether this program should server content over TLS
+- cert: The TLS certificate
+- key: The TLS key
+
+
+
