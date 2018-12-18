@@ -57,10 +57,9 @@ Some of these clients include:
   - NEM 
   - Monero
   
-Note
-
-Have a client of your own? If you would like Whiteblock to provde support for your client, please contact us at hello@whiteblock.io. 
-
+.. note:: Do you have a client of your own that you would like Whiteblock to support,
+          please contact the team via email at `hello@whiteblock.io` or join one of 
+          our community channels.
 
 
 
