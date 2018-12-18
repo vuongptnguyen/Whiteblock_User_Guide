@@ -10,7 +10,8 @@ Welcome to the Whiteblock User Guide.
 
 .. toctree::
    :maxdepth: 2
-
+   
+   overview
    get_started
    references
    
