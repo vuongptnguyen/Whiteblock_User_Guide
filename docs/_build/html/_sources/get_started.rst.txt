@@ -5,7 +5,9 @@ Get Started
 
 Build The Network
 =========================
-In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. Set the required server number to 2 and use the default parameter for the rest of the options.  
+In this step, we create and deploy a selected blockchain network with the specified client and number of nodes. The Whiteblock platform provisions each node as an independent participant within the blockchain network. Nodes are logically separated from one another within their own Local Area Network (LAN). 
+
+After running the build command as shown below, you will be prompted to customize the blockchain network, this includes configuring the Wide Area Network (WAN) links between each node with latency, packet loss, bandwidth constraints, and other common network characteristics. If this is your first time using the Whiteblock platform, it may be easier to stick with the default parameters provided for each option.  
 
 Command: 
 
@@ -35,38 +37,42 @@ Output:
 
 Configure Network Conditions
 =============================
-To add network latency between nodes, you can use the following commands: 
+To add network latency between nodes, use the following commands: 
 
 .. code-block:: console
 
   $ whiteblock netconfig delay 1 1 200
+
+
+The above commands configure the amount of latency between nodes and follows this format: delay <engine number> <path number> <amount>.
+
+The first `1` value refers to emulation engine 1, the second 1 refers to VLAN path 1. The `200` valuerefers to the total amount of one-way latency, which translates to milliseconds. 
+
   $ whiteblock netconfig on 1
 
 
-The first command above use the delay condition for network emulation. The command follow this format: delay <engine number> <path number> <amount>.
+This command turns the netconfig engine on and implements latency on  on engine 1. 
 
-The first 1 refers to the emulation engine1, the second 1 refers to the VLAN path1. The 200 here refers to the one-way latency of 200ms. The second command above turn on the netconfig on engine1. 
-
-
-
-To turn the netconfig off, you can write: 
+To turn disbale netconfig, use the following command: 
 
 .. code-block:: console
 
   $ whiteblock netconfig off 1
 
 
-To learn the format of how to use other netconfig parameters, please visit the Command Line Reference page. 
+For more advanced netconfig parameters, please visit the Command Line Reference page. 
 
 
 
 
 
-Send Transactions
+Automate Transactions
 =========================
-After configured the network condition, we want to run some transactions for throughput test. The transaction commands need to follow this format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the blockchain type specified in the network building step. This will send transactions with the submission rate specified in the second argument <tx/s> and the amount of assets to send in the third parameter <value>, specified in hex. This will immediately begin transactions has the network been built properly. 
+After configuring network conditions, transactional logic can be defined and automated for such purposes as throughput tests. Transaction commands adhere to the following format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the relevant command used by the client that was indicated when the network was built. 
 
-To start the transaction, run the following command: 
+The transaction engine will automate transactions according to the specified submission rate in the second argument <tx/s> and the amount of assets sent in the third parameter <value>, which is specified in hex. This will immediately begin transactions once the network is finished building, but these values can also be configured and altered once the network has already been built. 
+
+To start transactions, run the following command: 
 
 .. code-block:: console
 

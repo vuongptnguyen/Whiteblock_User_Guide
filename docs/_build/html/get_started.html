@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="references.html" />
-    <link rel="prev" title="Table of Contents" href="index.html" /> 
+    <link rel="prev" title="Overview" href="overview.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,10 +83,11 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#build-the-network">Build The Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-network-conditions">Configure Network Conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#send-transactions">Send Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automate-transactions">Automate Transactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examine-data">Examine Data</a></li>
 </ul>
 </li>
@@ -159,7 +160,8 @@
 <h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="build-the-network">
 <h2>Build The Network<a class="headerlink" href="#build-the-network" title="Permalink to this headline">¶</a></h2>
-<p>In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. Set the required server number to 2 and use the default parameter for the rest of the options.</p>
+<p>In this step, we create and deploy a selected blockchain network with the specified client and number of nodes. The Whiteblock platform provisions each node as an independent participant within the blockchain network. Nodes are logically separated from one another within their own Local Area Network (LAN).</p>
+<p>After running the build command as shown below, you will be prompted to customize the blockchain network, this includes configuring the Wide Area Network (WAN) links between each node with latency, packet loss, bandwidth constraints, and other common network characteristics. If this is your first time using the Whiteblock platform, it may be easier to stick with the default parameters provided for each option.</p>
 <p>Command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock build
 </pre></div>
@@ -179,23 +181,26 @@
 </div>
 <div class="section" id="configure-network-conditions">
 <h2>Configure Network Conditions<a class="headerlink" href="#configure-network-conditions" title="Permalink to this headline">¶</a></h2>
-<p>To add network latency between nodes, you can use the following commands:</p>
+<p>To add network latency between nodes, use the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock netconfig delay <span class="m">1</span> <span class="m">1</span> <span class="m">200</span>
-<span class="gp">$</span> whiteblock netconfig on <span class="m">1</span>
 </pre></div>
 </div>
-<p>The first command above use the delay condition for network emulation. The command follow this format: delay &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt;.</p>
-<p>The first 1 refers to the emulation engine1, the second 1 refers to the VLAN path1. The 200 here refers to the one-way latency of 200ms. The second command above turn on the netconfig on engine1.</p>
-<p>To turn the netconfig off, you can write:</p>
+<p>The above commands configure the amount of latency between nodes and follows this format: delay &lt;engine number&gt; &lt;path number&gt; &lt;amount&gt;.</p>
+<p>The first <cite>1</cite> value refers to emulation engine 1, the second 1 refers to VLAN path 1. The <cite>200</cite> valuerefers to the total amount of one-way latency, which translates to milliseconds.</p>
+<blockquote>
+<div>$ whiteblock netconfig on 1</div></blockquote>
+<p>This command turns the netconfig engine on and implements latency on  on engine 1.</p>
+<p>To turn disbale netconfig, use the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock netconfig off <span class="m">1</span>
 </pre></div>
 </div>
-<p>To learn the format of how to use other netconfig parameters, please visit the Command Line Reference page.</p>
+<p>For more advanced netconfig parameters, please visit the Command Line Reference page.</p>
 </div>
-<div class="section" id="send-transactions">
-<h2>Send Transactions<a class="headerlink" href="#send-transactions" title="Permalink to this headline">¶</a></h2>
-<p>After configured the network condition, we want to run some transactions for throughput test. The transaction commands need to follow this format: whiteblock &lt;blockchain-interface&gt; send_transactions &lt;tx/s&gt; &lt;value&gt;. The &lt;blockchain-interface&gt; needs to be consistent with the blockchain type specified in the network building step. This will send transactions with the submission rate specified in the second argument &lt;tx/s&gt; and the amount of assets to send in the third parameter &lt;value&gt;, specified in hex. This will immediately begin transactions has the network been built properly.</p>
-<p>To start the transaction, run the following command:</p>
+<div class="section" id="automate-transactions">
+<h2>Automate Transactions<a class="headerlink" href="#automate-transactions" title="Permalink to this headline">¶</a></h2>
+<p>After configuring network conditions, transactional logic can be defined and automated for such purposes as throughput tests. Transaction commands adhere to the following format: whiteblock &lt;blockchain-interface&gt; send_transactions &lt;tx/s&gt; &lt;value&gt;. The &lt;blockchain-interface&gt; needs to be consistent with the relevant command used by the client that was indicated when the network was built.</p>
+<p>The transaction engine will automate transactions according to the specified submission rate in the second argument &lt;tx/s&gt; and the amount of assets sent in the third parameter &lt;value&gt;, which is specified in hex. This will immediately begin transactions once the network is finished building, but these values can also be configured and altered once the network has already been built.</p>
+<p>To start transactions, run the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> whiteblock geth start_transactions <span class="m">100</span> 0x545454
 <span class="go">started</span>
 </pre></div>
@@ -275,7 +280,7 @@
         <a href="references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Table of Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
