@@ -2,9 +2,8 @@
 References
 ************
 
-Command Line
+Command Line Interface
 =========================
-**Whiteblock CLI**
 
 .. code-block:: console
 
@@ -13,14 +12,14 @@ Command Line
 This application will deploy a blockchain, create nodes, and allow those nodes to interact in the network. 
 
 - Available Commands:
-    - build Build a blockchain using image and deploy nodes
-    - get Get server and network information.
-    - geth Run geth commands
-    - help Help about any command
-    - netconfig Network conditions
-    - rpc Rpc interacts with the blockchain
-    - ssh SSH into an existing container. 
-    - version Get whiteblock CLI client version
+    - `build` Build a blockchain using image and deploy nodes
+    - `get` Get server and network information.
+    - `geth` Run geth commands
+    - `help` Displays help page
+    - `netconfig` Network conditions
+    - `rpc` Rpc interacts with the blockchain
+    - `ssh` SSH into an existing container. 
+    - `version` Display Whiteblock CLI version
 
 - Flags:
     - -h, --help : help for whiteblock
@@ -34,7 +33,7 @@ Fowarding Commands
     - Response: JSON Array of the responses
     - Response Example: ["HTTP/1.1 200 OK\r\n\r\n"]
 
-Build
+build
 =========================
 
 .. code-block:: console
