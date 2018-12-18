@@ -12,13 +12,15 @@ Each node exists within its own Virtual Local Area Network (VLAN) and is assigne
 Use Cases
 =========================
 
--	Blockchain agnostic.
--	Simulate live, global network with data & statistics in real-time.
--	Provision and configure multiple independent nodes.
--	Test fault tolerance.
--	Configure latency, packet loss, & bandwidth.
--	Randomize or configure transactions size, frequency, & rate.
--	Private, integrated development environment.
+  -	Blockchain Agnostic
+  -	Simulate A Live, Global Network 
+  -	Configure Latency, Packet Loss, & Bandwidth.
+  - Real-Time Data & Statistics 
+  -	Provision & Configure Multiple Independent Nodes
+  -	Test Fault Tolerance
+  -	Automate Transactions By Size, Frequency, & Rate.
+  -	Private, Integrated Development Environment
+  - Compile, Deploy, & Functionally Test Smart Contracts
 
 Features
 =========================
@@ -33,15 +35,15 @@ Features
   
 Network Specifications
 =========================
-- Bandwith Capabilities: Up To 1 00Gb/s 
-- Maximum Nodes: >20,000 
-- Maximum Latency: 20S I 20,000 MS 
-- Packet Loss: Random, Periodic, Burst, BER, Gilbert-Elliot Time Accuracy: Within .01 Milliseconds 
+  - Bandwith Capabilities: Up To 1 00Gb/s 
+  - Maximum Nodes: >20,000 
+  - Maximum Latency: 20S I 20,000 MS 
+  - Packet Loss: Random, Periodic, Burst, BER, Gilbert-Elliot Time Accuracy: Within .01 Milliseconds 
 
 Supported Clients
 =========================
 
-[Whiteblock](https://www.whiteblock.io) is a blockchain testing platform. While the platform itself is blockchain agnostic, several clients are natively supported. 
+While the platform itself is blockchain agnostic, several clients are natively supported. 
 
 Some of these clients include: 
 
@@ -52,6 +54,8 @@ Some of these clients include:
   - Hyperledger Fabric
   - Hyperledger Sawtooth
   - Quorum
+  - NEM 
+  - Monero
   
 If you have a client of your own which you would like Whiteblock to support, please contact us at hello@whiteblock.io. 
 
