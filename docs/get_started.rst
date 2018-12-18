@@ -5,7 +5,7 @@ Get Started
 
 Build The Network
 =========================
-In this step, we create and deploy a selected blockchain network with  the specified number of nodes. Each node will be instantiated and will interact individually as a participant of the blockchain network. After we run the build command as shown below, you will be prompted to customized your blockchain. For simplicity, just use the default parameters for all the options.  
+In this step, we create and deploy a selected blockchain network with the specified client and number of nodes. The Whiteblock platform provisions each node to interact independently as a participant of the blockchain network. Nodes are logically separated from one another within their own Local Area Network (LAN). After running the build command as shown below, you will be prompted to customized your blockchain, this includes configuring the Wide Area Network (WAN) links between each node with latency, packet loss, bandwidth constraints, and other common network characteristics. If this is your first time using the Whiteblock platform, it may be easier to use the default parameters for each option.  
 
 Command: 
 
@@ -35,7 +35,7 @@ Output:
 
 Configure Network Conditions
 =============================
-To add network latency between nodes, you can use the following commands: 
+To add network latency between nodes, use the following commands: 
 
 .. code-block:: console
 
@@ -56,7 +56,7 @@ To turn the netconfig off, you can write:
   $ whiteblock netconfig off 1
 
 
-To learn the format of how to use other netconfig parameters, please visit the Command Line Reference page. 
+For more advanced netconfig parameters, please visit the Command Line Reference page. 
 
 
 
@@ -64,7 +64,7 @@ To learn the format of how to use other netconfig parameters, please visit the C
 
 Send Transactions
 =========================
-After configured the network condition, we want to run some transactions for throughput test. The transaction commands need to follow this format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the blockchain type specified in the network building step. This will send transactions with the submission rate specified in the second argument <tx/s> and the amount of assets to send in the third parameter <value>, specified in hex. This will immediately begin transactions has the network been built properly. 
+After configuring network conditions, transactional logic can be defined and automated for such purposes as throughput tests. Transaction commands adhere to the following format: whiteblock <blockchain-interface> send_transactions <tx/s> <value>. The <blockchain-interface> needs to be consistent with the specified client indicated when the network is built. This will send transactions with the specified submission rate in the second argument <tx/s> and the amount of assets to send in the third parameter <value>, specified in hex. This will immediately begin transactions has the network been built properly. 
 
 To start the transaction, run the following command: 
 
