@@ -2,6 +2,20 @@
 Get Started
 ************
 
+There are two primary components of the Whiteblock platform:
+
+**Graphical User Interface (GUI)** - The GUI acts as a data visualization dashboard which provides insight into relevant performance metrics for the blockchain network. 
+
+**Command Line Interface (CLI)** - Using the CLI application, users can interface with the Whiteblock platform. It provides functionality which allows users to configure the blockchain network, provision nodes, and automate various behaviors and actions within the blockchain network. The following documentation focuses primarily on the CLI application. 
+
+Accessing The GUI
+=========================
+New users will be provided a custom subdomain on the Whiteblock website. You will be provided user credentials when you sign up. Simply use the specified username and password to log-in to the GUI.
+
+Accessing The CLI Application
+=========================
+The Whiteblock team will provide a unique public/private keypair that will allow you to securely connect to the CLI application within a private Whiteblock environment through a Secure Shell (SSH) session. 
+
 
 Build The Network
 =========================
@@ -29,12 +43,6 @@ Output:
   Building: 100.000000
   Done
 
-
-
-
-
-
-
 Configure Network Conditions
 =============================
 To add network latency between nodes, use the following commands: 
@@ -61,10 +69,6 @@ To turn disbale netconfig, use the following command:
 
 
 For more advanced netconfig parameters, please visit the Command Line Reference page. 
-
-
-
-
 
 Automate Transactions
 =========================
