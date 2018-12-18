@@ -762,8 +762,6 @@ Stops the sending of transactions if transactions are currently being sent
 
 Syscoin
 =========================
-Syscoin
-=============================
 **Syscoin (RegTest)**
 
 Options:
@@ -781,37 +779,6 @@ Options:
 - senderExtras: Extra options to add to the config file for senders
 - receiverExtras: Extra options to add to the config file for receivers
 - mnExtras: Extra options to add to the config file for master nodes
-
-**Example (using defaults)**
-
-.. code-block:: JSON
-
-  {
-      "rpcUser":"username",
-      "rpcPass":"password",
-      "masterNodeConns":25,
-      "nodeConns":8,
-      "percentMasternodes":90,
-      "options":[
-          "server",
-          "regtest",
-          "listen",
-          "rest"
-      ],
-      "senderOptions":[
-          "tpstest",
-          "addressindex"
-      ],
-      "mnOptions":[],
-      "receiverOptions":[
-         "tpstest"
-      ],
-      "extras":[],
-      "senderExtras":[],
-      "receiverExtras":[],
-      "mnExtras":[]
-  }
-
 
 - sys::start_test
     - Description: Start the propogation/tps test for syscoin
@@ -889,4 +856,33 @@ Format: <test number> Params: Test number
     - -a, --server-addr string: server address with port 5000 (default "localhost:5000")
 
 
+**Example (using defaults)**
+
+.. code-block:: JSON
+
+  {
+      "rpcUser":"username",
+      "rpcPass":"password",
+      "masterNodeConns":25,
+      "nodeConns":8,
+      "percentMasternodes":90,
+      "options":[
+          "server",
+          "regtest",
+          "listen",
+          "rest"
+      ],
+      "senderOptions":[
+          "tpstest",
+          "addressindex"
+      ],
+      "mnOptions":[],
+      "receiverOptions":[
+         "tpstest"
+      ],
+      "extras":[],
+      "senderExtras":[],
+      "receiverExtras":[],
+      "mnExtras":[]
+  }
 
