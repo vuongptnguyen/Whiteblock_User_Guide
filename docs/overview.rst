@@ -15,8 +15,7 @@ Each node exists within its own Virtual Local Area Network (VLAN) and is assigne
 Use Cases
 =========================
 
-  -	Blockchain Agnostic
-  -	Simulate A Live, Global Network 
+  -	Simulate Live, Global Network Performance
   -	Configure Latency, Packet Loss, & Bandwidth.
   - Real-Time Data & Statistics 
   -	Provision & Configure Multiple Independent Nodes
@@ -27,14 +26,15 @@ Use Cases
 
 Features
 =========================
+  -	Blockchain Agnostic - Deploy from list of supported clients with appropriate testing libraries or bring your own into the Whiteblock environment. 
   - Automate Genesis Ceremony - Quickly provision a functional blockchain network without the additional hassle of editing a configuration file every time a new test network is provisioned.
-  - Account/Wallet Creation - Indicate total number of accounts/wallets to be created within network. 
-  - Pre-allocate Funds - Fund these wallet/accounts with a specified amount of assets. Start testing right away without the need to wait for a mining rewards. 
-  - Transactional Logic - Indicate the value and volume of transactions to automate activity. Observe transactions per second and the effects of various environmental conditions on TPS.
+  - Account & Wallet Creation - Indicate total number of accounts/wallets to be created within network. 
+  - Pre-allocate Funds - Fund wallets and accounts with a specified amount of assets. Start testing right away without the need to wait for mining rewards. 
+  - Transactional Logic - Indicate the value and volume of transactions to automate activity. Measure transactions per second (TPS) and observe the effects of various environmental conditions on throughput.
   - Network Behavior - Configure Wide Area Network (WAN) conditions between nodes, including latency, packet loss, and bandwidth constraints to replicate real-world performance within a safe and controlled environment. 
   - Data Visualization - The Whiteblock Explorer provides insight into TPS, uncle rate, and other relevant data points and performance metrics.
-  - Reporting - Create concise reports to summarize your test cases. 
-  - Pipeline Integration - Whiteblock seamlessly integrates with your CI/CD platform of choice to reduce devlopment overhead.
+  - Reporting - Generate concise reports to summarize your test cases. 
+  - Pipeline Integration - Whiteblock seamlessly integrates with your CI/CD platform of choice to reduce development overhead.
   
 Network Specifications
 =========================
@@ -60,8 +60,8 @@ Some of these clients include:
   - NEM 
   - Monero
   
-.. note:: Do you have a client of your own that you would like Whiteblock to support,
-          please contact the team via email at `hello@whiteblock.io` or join one of 
+.. note:: Do you have a client of your own that you would like Whiteblock to support?
+          Feel free to contact the team via email at `hello@whiteblock.io` or join one of 
           our community channels.
 
 
