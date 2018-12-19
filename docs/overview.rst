@@ -3,6 +3,9 @@
 Overview
 ************
 
+.. note:: Please note that these documents are still being drafted and subject to change. 
+
+
 Whiteblock is a full-stack blockchain testing platform that helps development teams quickly test & deploy high-performing distributed ledger technologies. 
 
 The Whiteblock platform allows users to provision multiple fully-functioning nodes (>1000) within a private test network over which they have complete control. Transactions, behaviors, and other logic can be automated as nodes interact in real-time, allowing testers to observe the performance of protocols, algorithms, decentralized applications, or changes to system infrastructure prior to deployment. 
