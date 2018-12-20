@@ -54,7 +54,9 @@ To add network latency between nodes, use the following commands:
 
 The above commands configure the amount of latency between nodes and follows this format: delay <engine number> <path number> <amount>.
 
-The first `1` value refers to emulation engine 1, the second 1 refers to VLAN path 1. The `200` valuerefers to the total amount of one-way latency, which translates to milliseconds. 
+The first `1` value refers to emulation engine 1, the second 1 refers to VLAN path 1. The `200` valuerefers to the total amount of one-way latency, which translates to milliseconds.
+
+.. code-block:: console
 
   $ whiteblock netconfig on 1
 
