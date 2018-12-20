@@ -2,8 +2,7 @@
 References
 ************
 
-.. note:: Please note that these documents are still being drafted and subject to change. 
-          This page is particularly rough, so take it easy, buddy. 
+Note: Please note that these documents are still being drafted and subject to change. This page is particularly rough, so take it easy, buddy. 
 
 
 Command Line Interface
