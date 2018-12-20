@@ -9,10 +9,13 @@ Table of Contents
 Welcome to the Whiteblock User Guide. 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    
    overview
    get_started
+   gui
+   cli
+   clients
    references
    
    
