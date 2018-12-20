@@ -6,7 +6,7 @@ Overview
 `Note: Please note that these documents are still being drafted and subject to change.`
 
 
-Whiteblock is a full-stack blockchain testing platform that helps development teams quickly test & deploy high-performing distributed ledger technologies. 
+`Whiteblock <https://whiteblock.io/>`_ is a full-stack blockchain testing platform that helps development teams quickly test & deploy high-performing distributed ledger technologies. 
 
 The Whiteblock platform allows users to provision multiple fully-functioning nodes (>1000) within a private test network over which they have complete control. Transactions, behaviors, and other logic can be automated as nodes interact in real-time, allowing testers to observe the performance of protocols, algorithms, decentralized applications, or changes to system infrastructure prior to deployment. 
 
@@ -61,7 +61,7 @@ Some of these clients include:
   - Monero
   
 Note: Do you have a client of your own that you would like Whiteblock to support? 
-Feel free to contact the team via email at `hello@whiteblock.io` or join one of our community channels.
+Feel free to contact the team via email at `hello@whiteblock.io` or join our `Telegram channel <https://t.me/joinchat/HsUCShLKi--lX14OSQyhMg>`_ 
 
 
 
