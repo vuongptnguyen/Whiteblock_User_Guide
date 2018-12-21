@@ -45,6 +45,7 @@ Ethereum
 -------------------------
 Build
 +++++++++++++
+
 .. code-block:: console
 
   $ whiteblock build
@@ -54,6 +55,7 @@ This application will deploy an Ethereum blockchain, create nodes, and allow tho
 Mining
 +++++++++++++
 For Ethereum, the command to start mining is given below. If no arguments are given, this command will have all nodes start mining. Users can specify the number of nodes to mine by giving the node numbers as arguments to this command.
+
 .. code-block:: console
 
   $ whiteblock geth start_mining
@@ -67,10 +69,12 @@ In the case for Ethereum, this command will automate transactions according to t
 This will immediately begin transactions once the network is finished building, but these values can also be configured and altered once the network has already been built. 
 
 To start transactions, run the following command: 
+
 .. code-block:: console
 
   $ whiteblock geth start_transactions 100 0x545454
 To stop the transaction, run the following command:
+
 .. code-block:: console
 
   $ whiteblock geth stop_transactions
@@ -82,11 +86,15 @@ Rchain
 -------------------------
 Build
 +++++++++++++
+
 .. code-block:: console
 
   $ whiteblock build
+  
 Build Using Default Parameters:
+
 .. code-block:: console
+
   blockchain (default set to: rchain):
   nodes (default set to: 10):
   image (default set to: rchain:latest):
@@ -98,7 +106,9 @@ Build Using Default Parameters:
   Done
   
 To Build Without Default Parameters, Type n When Being Prompted: `Use default parameters? (y/n)`
+
 .. code-block:: console
+
   blockchain (default set to: rchain):
   nodes (default set to: 10): 15
   image (default set to: rchain:latest):
