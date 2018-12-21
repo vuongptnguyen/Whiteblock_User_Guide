@@ -13,8 +13,8 @@ Welcome to the Whiteblock User Guide.
    
    overview
    get_started
-   gui
    cli
+   gui
    clients
    references
    
